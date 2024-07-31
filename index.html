@@ -1,7 +1,327 @@
 <!DOCTYPE html>
 <html>
+
+<head>
+  <title>Marquise Dawkins</title>
+  <meta charset="UTF-8">
+
+   <!--bootstrap-->
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+   
+  <!--Favicon-->
+  <link rel="icon" type="image/x-con" href="./images/favicon.ico">
+
+  <!--Google Fonts-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Montserrat:wght@100;400;900&family=Playfair+Display:wght@700&family=Ubuntu&display=swap"
+    rel="stylesheet">
+
+    <!-- Font Awsome -->
+    <script src="https://kit.fontawesome.com/898932346b.js" crossorigin="anonymous"></script>
+
+  <!--Regular CSS-->
+   <link rel="stylesheet" id="cssfile" href="./CSS/styles.css">
+
+</head>
+
 <body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
+  <!--Navbar-->
+  
+  <div class="container">
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: rgb(42, 42, 59);">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <img src="./images/favicon-32x32.png" alt="" width="35" height="35">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#home">Home</a> 
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="#projects">Projects</a> 
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="#skills">Skills</a> 
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="#about">About Me</a> 
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="#contact">Contact</a> 
+        </li>
+        <li class="nav-item">
+          <button class="nav-link active mode" id="dmbutton" href="#button">Dark Mode</button>
+          <!-- <a class="nav-link active" href="#button">Dark Mode</a>  -->
+        </li>
+      </ul>
+    </div>
+
+  </div>
+
+</nav>
+</div>
+
+<!-- Home Section -->
+ 
+<div id="home">
+  <div class="intro">
+  <h1 class="marq">Hi,<br>I'm Marquise,<br>Software Engineer</h1>
+  </div>
+    <p class="fronte">Frontend/FullStack Engineer</p>
+</div>
+
+     <!-- Project Section -->
+
+ <div id="projects">
+  <h1 class="proj-head">Projects</h1>
+
+
+  <div class="card-styling-one">
+
+    <div class="card" style="width: 18rem;">
+      <img src="./images/reacr-restaurant-lp.png" class="card-img-top pj-pic" alt="FaceGram">
+      <div class="card-body">
+        <h5 class="card-title">React Restaurant</h5>
+        <p class="card-text">This website has a clean and modern design with a simple color scheme and easy-to-read fonts, making it user-friendly and visually appealing. The landing page provides a simple and effective interface for users to browse and order food items from the restaurant.</p>
+        <h4 class="lan-used">Technologies Being Used:</h4>
+        <h5 class="lan-used">React.Js, HTML, CSS</h5>
+        <a href="https://react-restaurant-42ac7.web.app/" class="btn btn-primary web-link">Website</a>
+        <a href="https://github.com/quisethecoder/react-restaurant-landing-page" class="btn btn-primary web link">Github</a>
+      </div>
+    </div>
+
+  <div class="card" style="width: 18rem;">
+    <img src="./images/music-player.png" class="card-img-top pj-pic" alt="Music Player">
+    <div class="card-body">
+      <h5 class="card-title">Music Player</h5>
+      <p class="card-text">This is my version of a Music Player called Motify(Marquise's Spotify). In this app you can play, pause, rewind, go back, go forward, and shuffle like you would on Apple Music or Spotify. It has a beautiful UI design and some of my favorite radio friendly songs.</p>
+      <h4 class="lan-used">Technologies Used:</h4>
+      <h5 class="lan-used">HTML, CSS, JavaScript</h5>
+      <a href="https://quisethecoder.github.io/music-player/" class="btn btn-primary web-link">Website</a>
+      <a href="https://github.com/quisethecoder/music-player" class="btn btn-primary web link">Github</a>
+    </div>
+  </div>
+
+  <div class="card" style="width: 18rem;">
+    <img src="./images/currency-convertor.png" class="card-img-top pj-pic" alt="currency-convertor">
+    <div class="card-body">
+      <h5 class="card-title">Currency Converter</h5>
+      <p class="card-text">With the Currency Converter, a user can enter an amount to convert the currency to a different country's currency. They can also easily exchange or reverse the two countries' currencies by clicking on the exchange icon.</p>
+      <h4 class="lan-used">Technologies Used:</h4>
+      <h5 class="lan-used">HTML, CSS, JavaScript, Currency API</h5>
+      <a href="https://calm-faloodeh-8866ae.netlify.app/" class="btn btn-primary web-link">Website</a>
+      <a href="https://github.com/quisethecoder/currency-converter" class="btn btn-primary web link">Github</a>
+    </div>
+  </div>
+
+  <div class="card" style="width: 18rem;">
+    <img src="./images/react-calculator.png" class="card-img-top pj-pic" alt="calculator">
+    <div class="card-body">
+      <h5 class="card-title">Calculator</h5>
+      <p class="card-text">This is a React Calculator that handles input changes, user interactions, and complex calculations. React concepts I learned while building this app are re-renders, state management, and breaking down my code into components.</p>
+      <h4 class="lan-used">Technologies Used:</h4>
+      <h5 class="lan-used">React.Js, HTML, CSS</h5>
+      <a href="https://calculator-react-f9434.web.app/" class="btn btn-primary web-link">Website</a>
+      <a href="https://github.com/quisethecoder/calculator-react" class="btn btn-primary web link">Github</a>
+    </div>
+  </div>
+
+</div>
+
+
+<div class="card-styling-two">
+
+  <div class="card" style="width: 18rem;">
+    <img src="./images/text-to-speech.png" class="card-img-top pj-pic" alt="DogMatch-Website">
+    <div class="card-body">
+      <h5 class="card-title">Text To Speech</h5>
+      <p class="card-text">In this Text To Speech app, you can convert your text into speech with different voices. The pause or resume option for the speech is also available if your text character length is more than 80. It is made with vanilla JavaScript, and no external library or API is used.</p>
+      <h4 class="lan-used">Technologies Used:</h4>
+      <h5 class="lan-used">HTML, CSS, JavaScript</h5>
+      <a href="https://quisethecoder.github.io/text-to-speech/" class="btn btn-primary web-link">Website</a>
+      <a href="https://github.com/quisethecoder/text-to-speech" class="btn btn-primary web link">Github</a>
+    </div>
+  </div>
+
+  <div class="card" style="width: 18rem;">
+    <img src="./images/dogmatch-pic.png" class="card-img-top pj-pic" alt="DogMatch-Website">
+    <div class="card-body">
+      <h5 class="card-title">DogMatch</h5>
+      <p class="card-text">DogMatch is a start up landing page that includes a title section, feature section, carousel to browse testimonials, pricing plan section, call to action, and a footer that would include social media pages. I also added GSAP in JavaScript to practice using animations.</p>
+      <h4 class="lan-used">Technologies Used:</h4>
+      <h5 class="lan-used">HTML, CSS, Boostrap, JavaScript, GSAP Animation</h5>
+      <a href="https://quisethecoder.github.io/DogMatch/" class="btn btn-primary web-link">Website</a>
+      <a href="https://github.com/quisethecoder/DogMatch" class="btn btn-primary web link">Github</a>
+    </div>
+  </div>
+
+  <div class="card" style="width: 18rem;">
+    <img src="./images/./passwordgenerator.png" class="card-img-top pj-pic" alt="Dice Game">
+    <div class="card-body">
+      <h5 class="card-title">Password Generator</h5>
+      <p class="card-text"> Users can generate random passwords by customizing their preferred settings such as lowercase, uppercase, number, etc. There is also a password strength indicator that informs the strength of the user's generated password. The user can also copy their generated password to the clipboard.</p>
+      <h4 class="lan-used">Technologies Used:</h4>
+      <h5 class="lan-used">HTML, CSS, JavaScript</h5>
+      <a href="https://quisethecoder.github.io/password-generator/" class="btn btn-primary web-link">Website</a>
+      <a href="https://github.com/quisethecoder/password-generator" class="btn btn-primary web link">Github</a>
+    </div>
+  </div>
+
+
+ 
+  <div class="card" style="width: 18rem;">
+    <img src="./images/javaScript-clock.png" class="card-img-top pj-pic" alt="Clock">
+    <div class="card-body">
+      <h5 class="card-title">Switchable Clock</h5>
+      <p class="card-text">I built a digital clock that starts in standard time, but can switch between military time and standard time by clicking a button. I added a darkmode button that switches to darker design for nightime use. Darkmode was added for extra practice using event listeners, and if else statements. </p>
+      <h4 class="lan-used">Technologies Used:</h4>
+      <h5 class="lan-used">HTML, CSS, JavaScript</h5>
+      <a href="https://quisethecoder.github.io/javascript-clock/" class="btn btn-primary web-link">Website</a>
+      <a href="https://github.com/quisethecoder/javascript-clock" class="btn btn-primary web link">Github</a>
+    </div>
+  </div>
+ 
+
+</div>
+    
+
+<!--Skills Section-->
+
+<div id="skills">
+<div class="skill-section">
+  <h1 class="skills-word">Skills</h1>
+
+  <p class="front">Front-end</p>
+  
+  <div class="front-pic">
+  <img class="logo" src="./images/html.png" alt="Html logo">
+  <img class="logo" src="./images/css.png" alt="CSS logo">
+  <img class="logo" src="./images/javascript.png" alt="JavaScript logo">
+  <img class="logo" src="./images/jquery.png" alt="Jquery logo">
+  <img class="logo" src="./images/bootstrap.png" alt="Bootstrap logo">
+  <img class="logo" src="./images/react.png" alt="React logo">
+  <img class="logo" src="./images/greensock.png" alt="Gsap logo">
+</div>
+
+
+  <p class="front">Back-end</p>
+
+  <div class="back-pic">
+  <img class="logo-b" src="./images/node-js.png" alt="Node.js logo">
+  <img class="logo-b round" src="./images/Express.png" alt="Express.js logo">
+  <img class="logo-b" src="./images/mongodb.png" alt="Mongodb logo">
+  <img class="logo-b round" src="./images/Mongoose.jpeg" alt="Mongoose logo">
+  <img class="logo-b round" src="./images/SQL.png" alt="Sql logo">
+  <img class="logo-b round" src="./images/Restful.png" alt="RESTful api logo">
+</div>
+
+
+  <p class="front">Other Tools</p>
+  
+  <div class="other-pic">
+  <img class="logos" src="./images/Git-Icon.png" alt="Git logo">
+  <img class="logos round" src="./images/GitHub-logo.jpg" alt="Github logo">
+  <img class="logos" src="./images/npm.png" alt="NPM logo">
+  <img class="logos round" src="./images/json.jpg" alt="Json logo">
+  <img class="logos round" src="./images/heroku.png" alt="Heroku logo">
+  <img class="logos" src="./images/netlify.png" alt="Netlify logo">
+</div>
+
+</div>
+
+
+ <!-- About Me Section -->
+
+ <div id="about">
+  <div class="abo-sec">
+  <h1 class="about">About Me</h1>
+  <p class="me">
+    Can an office assistant teach themself to program? This portfolio website can be your answer.   
+     <br>
+     <br>
+     I am a Web Developer with working proficiency in HTML, CSS, Bootstrap, jQuery, Node.js, JavaScript, and many other frameworks
+      and libraries. I am also very comfortable working with the Linux command line, using Git version control, and utilizing
+       website content management. Furthermore, I possess a fundamental understanding of mobile-first design concepts, and working with APIs.
+        
+     <br>
+     <br>
+     After over a year of study, I am ready to contribute to the world in this new way, and I'm looking forward to bringing the best
+      traits of a creative developer to the table. Over my career, I have learned how to get projects done quickly and precisely, handle
+       pressure in important moments, work with different types of people, and take initiative to pick up slack when needed. That, plus 
+       my ability to learn quickly has helped me to become a creative but also grounded developer. I hope you enjoy my projects.  I would 
+       love to work with a team that is truly passionate about what they create and that is striving to consistently move forward. Thank 
+       you for taking the time to look at my portfolio!</p>
+      </div>
+    </div>
+
+
+
+  <!-- Personal Hobby Section -->
+
+  
+  <h1 class="hob-head">What I Do When I Don't Code</h1>
+
+  
+  <div class="img-with-text">
+  <img class="hob-ind" src="./images/games.jpg"  alt="Video Game Controller">
+  <h4 class="text">Video Games</h4>
+  </div>
+
+  
+  <div class="img-sec-two">
+    <div class="info">
+  <img class="hob-ind-two" src="./images/hiking.jpg" alt="Hiking Picture">
+  <h4 class="text">Hike</h4>
+</div>
+
+<div class="info">
+  <img class="hob-ind-two" src="./images/making-beats.jpg" alt="Music Picture">
+  <h4 class="text">Make Music</h4>
+</div>
+
+<div class="info">
+  <img class="hob-ind-idv" src="./images/shooting-a-basketball.jpg" alt="Baskebtall">
+  <h4 class="text">Basketball</h4>
+</div>
+  </div>
+
+  <div class="img-with-text">
+  <img class="hob-ind" src="./images/cooking.jpg" alt="Cooking">
+  <h4 class="text">Cooking</h4>
+  </div>
+
+  <!-- Footer Section -->
+
+  <div id="contact">
+  <div class="contact">
+  <p class="con-me">Contact Me</p>
+  <a class="ref" href="mailto: marquise_dawkins@aol.com">Email</a>
+  <a class="ref" href="https://www.linkedin.com/in/marquise-dawkins/">LinkedIn</a>
+  <a class="ref" href="https://github.com/quisethecoder">Github</a>
+  </div>
+</div>
+
+
+  <!--Javascript-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/Flip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/Observer.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/ScrollToPlugin.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/Draggable.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/EaselPlugin.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/MotionPathPlugin.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/PixiPlugin.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/TextPlugin.min.js"></script>
+
+  <script src="./index.js" charset="UTF-8"></script> 
 </body>
+
 </html>

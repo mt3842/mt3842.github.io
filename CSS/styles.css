@@ -1,0 +1,264 @@
+body {
+    background-color: rgb(74, 91, 243);
+}
+
+h1,
+ul {
+    color: rgb(0, 0, 141);
+    font-family: 'Merriweather', serif;
+}
+
+
+p {
+    color: rgb(214, 218, 240);
+    font-family: 'Merriweather', serif;
+}
+
+.navbar{
+    margin-top: 1rem;
+    border-radius: 25px;
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+
+
+/* Mode is the dark/light button styling */
+.mode{
+    background-color: rgb(25, 13, 199);
+    border-radius: 50px;
+    font-family: 'Merriweather', serif;
+}
+
+.intro{
+    margin-left: 10em;
+    margin-top: 5em;
+}
+
+.marq{
+    font-size: 75px;
+}
+
+/* About me section */
+
+/* .abo-sec{
+    background-color: white;
+} */
+
+.about{
+    margin-top: 9rem;
+    margin-left: 150px;
+    margin-bottom: 2rem;
+}
+
+.me{
+    margin-left: 173px;  
+    margin-right: 150px;
+    font-family: 'Merriweather';
+    font-size: 25px;
+    text-align: left
+    
+}
+
+
+
+/* skills sections */
+
+.skills-word{
+    font-size: 75px;
+    margin: 100px 0px 20px 140px;
+    
+}
+
+.logo{
+    width: 7%; 
+    margin-left: 10px;
+}
+
+.front-pic{
+    margin-left: 165px;
+    margin-bottom: 50px;
+}
+
+.logo-b{
+    width: 8%;
+    margin-left: 30px;
+}
+
+.back-pic{
+    margin-left: 150px;
+    margin-bottom: 45px;
+}
+
+.logos{
+    width: 7%;
+    margin-left: 30px;
+}
+
+.other-pic{
+    margin-left: 157px;
+   margin-bottom: 150px;
+}
+
+.round{
+    border-radius: 10px;
+}
+
+
+/* This controls the where the p's are on the page */
+
+.fronte{
+    margin-left: 175px;
+    font-size: 20px;
+}
+
+.front{
+    margin-left: 175px;
+    font-size: 20px;
+}
+
+/* project section */
+
+.proj-head{
+   margin-left: 9rem;
+   margin-bottom: 2rem;
+   margin-top: 12rem;
+   font-size: 80px;
+}
+
+/* Personal Hobby section */
+
+.hob-head{
+    margin-right: 4rem;
+    margin-top: 125px;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.hob-ind{
+    width: 25%;
+    border-radius: 2rem;
+    
+}
+
+.img-with-text{
+    text-align: center;
+}
+
+.img-sec-two{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 58px;
+    margin-bottom: 58px;
+}
+
+
+.hob-ind-two{
+    width: 70%;
+    border-radius: 2rem;
+    margin-left: 2rem;
+}
+
+.hob-ind-idv{
+    width: 60%;
+    border-radius: 2rem;
+
+}
+
+.text{
+    font-family: 'Merriweather';
+    font-size: 25px;
+}
+
+/* footer/contact section */
+
+#contact{
+    margin-top: 8rem;
+}
+
+.con-me{
+    font-family: 'Merriweather';
+    font-size: 50px;
+}
+
+.contact{
+    text-align: center;
+    background-color: rgb(10, 42, 224);
+    padding-top: 3rem;
+    padding-bottom: 5rem;
+    
+    width: 100%;
+}
+
+a.ref:link, a.ref:visited{
+   background-color: rgb(13, 27, 75);
+   color: bisque;
+   padding: 14px 25px;
+   text-align: center;
+   text-decoration: none;
+   display: inline-block;
+   border-radius: 25px;
+}
+
+a.ref:hover, a.ref:active{
+    background-color: rgb(65, 77, 189);
+}
+
+
+/* project cards  */
+
+.card{
+    background: rgb(50, 51, 70);
+    border: 1px solid transparent;
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    
+}
+
+.card-title{
+    color: white;
+    text-align: center;
+}
+
+.card-styling-one{
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.card-styling-two{
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 50px;
+}
+
+.pj-pic{
+    height: 175px;
+}
+
+.lan-used{
+    color: rgb(124, 197, 106);
+    font-size: 20px;
+}
+
+
+.soon{
+    color: red;
+    font-style: italic;
+}
+
+.blur{
+    text-shadow: 0 0 8px rgb(238, 238, 238);
+    color: transparent;
+}
+
+.blur-pic{
+    filter: blur(5px);
+    -webkit-filter: blur(5px);
+    height: 100%;
+}

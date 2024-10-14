@@ -1,0 +1,217 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+/* HTML */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Body */
+body {
+  font-family: 'IBM Plex Mono', monospace, sans-serif !important;
+  background-color: #161a1d;
+  color: white; /* Change text color for better contrast */
+}
+
+/* Header and Section */
+header, section {
+  padding-top: 5rem;
+  height: 200px;
+}
+
+/* Anchors */
+a {
+  color: white; /* Change anchor color to white */
+  text-decoration: underline;
+}
+
+a:hover {
+  color: yellow; /* Change hover color for visibility */
+  background-image: linear-gradient(to right, black, black);
+  background-position: bottom left;
+  background-repeat: no-repeat;
+  background-size: 100% 2px;
+  text-decoration: none !important;
+}
+
+/* Content tabs a */
+#content-tabs a {
+  text-decoration: none;
+  color: white; /* Change tab link color to white */
+}
+
+/* Social Icons a color */
+.social-icons a {
+  color: black !important; /* Change social icon color to black */
+  background: none;
+}
+
+.social-iconsHead {
+  color: white !important; /* Change social icon color to white */
+  background: none;
+}
+
+/* User Image */
+.user-image {
+  width: 140px;
+  height: 140px;
+  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(100%);
+}
+
+@media (max-width: 767px) {
+  header .col-lg-2 {
+    padding-bottom: 3rem;
+  }
+}
+
+/* Content Switcher */
+.list-group-item.active {
+  color: white !important; /* Keep active item color white */
+  background: black !important;
+  border-color: black !important;
+}
+
+.list-group a {
+  color: white !important; /* Change general link color to white */
+}
+
+/* Timeline */
+.timeline-container {
+  width: 80%;
+  padding: 50px 0;
+  margin: 50px auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.timeline-container:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  margin-left: -1px;
+  width: 2px;
+  height: 100%;
+  background: #CCD1D9;
+  z-index: 1;
+}
+
+.timeline-block {
+  width: -webkit-calc(50% + 8px);
+  width: -moz-calc(50% + 8px);
+  width: calc(50% + 8px);
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -moz-box-pack: justify;
+  justify-content: space-between;
+  clear: both;
+}
+
+.timeline-block-right {
+  float: right;
+}
+
+.timeline-block-left {
+  float: left;
+  direction: ltr;
+}
+
+.marker {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid black;
+  background: white;
+  margin-top: 10px;
+  z-index: 9999;
+}
+
+.timeline-content {
+  width: 95%;
+  padding: 0 15px;
+  color: white; /* Change timeline text color to white */
+}
+
+.timeline-block-left .timeline-content {
+  text-align: right;
+}
+
+.timeline-content .timeline-h3 {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-size: 25px;
+  font-weight: 500;
+}
+
+.timeline-content .timeline-span {
+  font-size: 15px;
+  color: #a4a4a4; /* Keep span color subtle but readable */
+}
+
+.timeline-content .timeline-p {
+  font-size: 14px;
+  line-height: 1.5em;
+  word-spacing: 1px;
+  color: white; /* Change paragraph text color to white */
+}
+
+/* Card Styles */
+.card {
+    background-color: #bbc4c4	; /* Dark background for cards */
+    border: none; /* Remove border */
+    box-shadow: none; /* Remove shadow */
+  }
+  
+/* Ensure the card container has appropriate spacing */
+.card-container {
+    margin: 30px auto; /* Center the cards and add space around them */
+    max-width: 1000px; /* Set a max width to the container */
+  }
+
+.proj-img {
+    position:absolute;
+    left:0px;
+    height: 100%;
+    width: 150px;
+  }
+  
+
+.card .card-title,
+.card .card-text {
+  color: black; /* Ensure text inside card is white */
+}
+
+@media screen and (max-width: 768px) {
+  .timeline-container:before {
+    left: 8px;
+    width: 2px;
+  }
+
+  .timeline-block {
+    width: 100%;
+    margin-bottom: 30px;
+  }
+
+  .timeline-block-right {
+    float: none;
+  }
+
+  .timeline-block-left {
+    float: none;
+    direction: ltr;
+  }
+
+  .timeline-block-left .timeline-content {
+    text-align: left;
+    order: 2;
+  }
+
+  .timeline-block-left .marker {
+    order: 1;
+  }
+}

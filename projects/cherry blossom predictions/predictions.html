@@ -1,0 +1,2368 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US" xml:lang="en-US"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.42">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Student">
+<meta name="dcterms.date" content="2025-02-28">
+
+<title>Cherry Blossom Peak Bloom Predictions</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="predictions_files/libs/clipboard/clipboard.min.js"></script>
+<script src="predictions_files/libs/quarto-html/quarto.js"></script>
+<script src="predictions_files/libs/quarto-html/popper.min.js"></script>
+<script src="predictions_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="predictions_files/libs/quarto-html/anchor.min.js"></script>
+<link href="predictions_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="predictions_files/libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="predictions_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="predictions_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="predictions_files/libs/bootstrap/bootstrap-c0367b04c37547644fece4185067e4a7.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Cherry Blossom Peak Bloom Predictions</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Student </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">February 28, 2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="abstract" class="level1">
+<h1>Abstract</h1>
+<p>This experiment attempts to forecast peak bloom dates by using a temperature-based time-series pattern matching technique. By using historical weather data and bloom observations, the method identifies analogous climate sequences from past years to project future bloom timings.</p>
+<p>The framework used is Fast Dynamic Time Warping (FastDTW), which compares recent temperature patterns with historical patterns, determining the most probable position in the bloom cycle. The dataset consists of daily temperature records for many years, formatted to represent the cycles of dormancy and bloom. To improve predictive accuracy, we introduce derived features including cumulative degree days, rolling temperature sums, and sum of squares of temperature values, and more.</p>
+<p>When testing the model, partial temperature sequences from historical bloom years are selected and compared in alignment to actual bloom dates. By iteratively sliding time windows over historical records, we can evaluate how closely predicted bloom dates match observed events through minimizng the Euclidean norm.</p>
+<p>Despite the many limitations in this design, it may prove beneficial to track bloom dates in terms of cyles and patterns. This tool of sliding windows to find patterns in the data can allow us to forecast any time-series datasets.</p>
+</section>
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p>This project aims to predict Cherry Blossom peak bloom dates (PBD) for 2025 at 5 locations around the world. Historical data on Cherry Blossom PBD was used to model bloom cycles, where the beginning of the cycle represents one day after previous PBD, and the final day represents the current PBD. These cycles are compared to one another, mapping similar trends on functions of temperature. In particular, the days leading up to the bloom were closely analyzed, allowing us to theoretically input a slice of current temperature data in order to predict how far along the cycle we are, thus generating an estimate for the future PBD.</p>
+</section>
+<section id="setup" class="level1">
+<h1>Setup</h1>
+<p>This project uses python and related packages. Please ensure python is installed, as well as all other dependencies listed below:</p>
+<div id="e1709ff9" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> datetime <span class="im">as</span> dt</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> fastdtw <span class="im">import</span> fastdtw</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> warnings</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>warnings.filterwarnings(<span class="st">'ignore'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="0a3e67c3" class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import Bloom Datasets</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>washingtondc <span class="op">=</span> pd.read_csv(<span class="st">'data/washingtondc.csv'</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>liestal <span class="op">=</span> pd.read_csv(<span class="st">'data/liestal.csv'</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>kyoto <span class="op">=</span> pd.read_csv(<span class="st">'data/kyoto.csv'</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>vancouver <span class="op">=</span> pd.read_csv(<span class="st">'data/vancouver.csv'</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>newyorkcity <span class="op">=</span> pd.read_csv(<span class="st">'data/nyc.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="4f36597b" class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create and engineer relevant features for Washington DC </span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Years not included (missing data): 2000 </span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>wdc_weather_df <span class="op">=</span> pd.read_csv(<span class="st">'data/wdc_weather1990_2024.csv'</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>wdc_weather_df.reset_index(drop<span class="op">=</span><span class="va">True</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>wdc_weather_df[<span class="st">'Date'</span>] <span class="op">=</span> pd.to_datetime(wdc_weather_df[<span class="st">'Date'</span>])</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>wdc_weather_df.sort_values(by<span class="op">=</span><span class="st">'Date'</span>,inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>wdc_weather_df.drop(columns<span class="op">=</span>[<span class="st">'index'</span>], inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>wdc_weather_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="3">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Temp_max</th>
+<th data-quarto-table-cell-role="th">Temp_avg</th>
+<th data-quarto-table-cell-role="th">Temp_min</th>
+<th data-quarto-table-cell-role="th">Dew_max</th>
+<th data-quarto-table-cell-role="th">Dew_avg</th>
+<th data-quarto-table-cell-role="th">Dew_min</th>
+<th data-quarto-table-cell-role="th">Hum_max</th>
+<th data-quarto-table-cell-role="th">Hum_avg</th>
+<th data-quarto-table-cell-role="th">Hum_min</th>
+<th data-quarto-table-cell-role="th">Wind_max</th>
+<th data-quarto-table-cell-role="th">Wind_avg</th>
+<th data-quarto-table-cell-role="th">Wind_min</th>
+<th data-quarto-table-cell-role="th">Pres_max</th>
+<th data-quarto-table-cell-role="th">Pres_avg</th>
+<th data-quarto-table-cell-role="th">Pres_min</th>
+<th data-quarto-table-cell-role="th">Precipitation</th>
+<th data-quarto-table-cell-role="th">Date</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>46</td>
+<td>39.4</td>
+<td>0</td>
+<td>45</td>
+<td>25.3</td>
+<td>0</td>
+<td>96</td>
+<td>55.0</td>
+<td>0</td>
+<td>24</td>
+<td>17.5</td>
+<td>8</td>
+<td>30.3</td>
+<td>29.9</td>
+<td>29.6</td>
+<td>0.00</td>
+<td>1990-01-01</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>46</td>
+<td>36.3</td>
+<td>29</td>
+<td>28</td>
+<td>23.0</td>
+<td>20</td>
+<td>86</td>
+<td>60.5</td>
+<td>39</td>
+<td>12</td>
+<td>8.0</td>
+<td>6</td>
+<td>30.5</td>
+<td>30.4</td>
+<td>30.3</td>
+<td>0.00</td>
+<td>1990-01-02</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>50</td>
+<td>37.0</td>
+<td>30</td>
+<td>30</td>
+<td>27.2</td>
+<td>22</td>
+<td>89</td>
+<td>70.2</td>
+<td>39</td>
+<td>12</td>
+<td>5.8</td>
+<td>2</td>
+<td>30.4</td>
+<td>30.3</td>
+<td>30.3</td>
+<td>0.00</td>
+<td>1990-01-03</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>55</td>
+<td>32.8</td>
+<td>0</td>
+<td>51</td>
+<td>27.3</td>
+<td>0</td>
+<td>97</td>
+<td>74.4</td>
+<td>0</td>
+<td>17</td>
+<td>10.4</td>
+<td>3</td>
+<td>30.3</td>
+<td>30.0</td>
+<td>29.9</td>
+<td>0.00</td>
+<td>1990-01-04</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>51</td>
+<td>45.4</td>
+<td>42</td>
+<td>46</td>
+<td>36.5</td>
+<td>31</td>
+<td>100</td>
+<td>72.8</td>
+<td>50</td>
+<td>15</td>
+<td>8.0</td>
+<td>0</td>
+<td>30.2</td>
+<td>30.1</td>
+<td>29.9</td>
+<td>0.00</td>
+<td>1990-01-05</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">12412</td>
+<td>49</td>
+<td>42.0</td>
+<td>36</td>
+<td>38</td>
+<td>30.5</td>
+<td>27</td>
+<td>82</td>
+<td>64.4</td>
+<td>50</td>
+<td>7</td>
+<td>3.0</td>
+<td>0</td>
+<td>30.5</td>
+<td>30.4</td>
+<td>30.3</td>
+<td>0.00</td>
+<td>2024-12-27</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">12413</td>
+<td>53</td>
+<td>47.0</td>
+<td>42</td>
+<td>50</td>
+<td>44.2</td>
+<td>39</td>
+<td>94</td>
+<td>89.8</td>
+<td>86</td>
+<td>12</td>
+<td>4.6</td>
+<td>0</td>
+<td>30.3</td>
+<td>30.2</td>
+<td>30.2</td>
+<td>0.29</td>
+<td>2024-12-28</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">12414</td>
+<td>67</td>
+<td>56.5</td>
+<td>50</td>
+<td>56</td>
+<td>51.6</td>
+<td>46</td>
+<td>93</td>
+<td>84.2</td>
+<td>59</td>
+<td>21</td>
+<td>8.0</td>
+<td>0</td>
+<td>30.2</td>
+<td>30.0</td>
+<td>29.6</td>
+<td>0.35</td>
+<td>2024-12-29</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">12415</td>
+<td>63</td>
+<td>55.8</td>
+<td>44</td>
+<td>53</td>
+<td>37.5</td>
+<td>27</td>
+<td>86</td>
+<td>54.4</td>
+<td>27</td>
+<td>21</td>
+<td>9.0</td>
+<td>3</td>
+<td>29.9</td>
+<td>29.7</td>
+<td>29.6</td>
+<td>0.03</td>
+<td>2024-12-30</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">12416</td>
+<td>63</td>
+<td>50.3</td>
+<td>40</td>
+<td>47</td>
+<td>40.5</td>
+<td>35</td>
+<td>90</td>
+<td>71.5</td>
+<td>41</td>
+<td>32</td>
+<td>8.2</td>
+<td>0</td>
+<td>29.9</td>
+<td>29.7</td>
+<td>29.5</td>
+<td>0.00</td>
+<td>2024-12-31</td>
+</tr>
+</tbody>
+</table>
+
+<p>12417 rows × 17 columns</p>
+</div>
+</div>
+</div>
+<div id="1efa291d" class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>wdc_bloomdates_df <span class="op">=</span> pd.DataFrame(washingtondc)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>wdc_bloomdates_df <span class="op">=</span> wdc_bloomdates_df[wdc_bloomdates_df[<span class="st">'year'</span>] <span class="op">&gt;=</span> <span class="dv">1990</span>]</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>wdc_bloomdates_df <span class="op">=</span> wdc_bloomdates_df.drop(wdc_bloomdates_df[wdc_bloomdates_df[<span class="st">'year'</span>] <span class="op">==</span> <span class="dv">2000</span>].index)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>wdc_bloomdates_df[<span class="st">'bloom_date'</span>] <span class="op">=</span> pd.to_datetime(wdc_bloomdates_df[<span class="st">'bloom_date'</span>])</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>wdc_bloomdates_df.reset_index(drop<span class="op">=</span><span class="va">True</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>wdc_bloomdates_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="4">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">location</th>
+<th data-quarto-table-cell-role="th">lat</th>
+<th data-quarto-table-cell-role="th">long</th>
+<th data-quarto-table-cell-role="th">alt</th>
+<th data-quarto-table-cell-role="th">year</th>
+<th data-quarto-table-cell-role="th">bloom_date</th>
+<th data-quarto-table-cell-role="th">bloom_doy</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>washingtondc</td>
+<td>38.88535</td>
+<td>-77.038628</td>
+<td>0</td>
+<td>1990</td>
+<td>1990-03-15</td>
+<td>74</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>washingtondc</td>
+<td>38.88535</td>
+<td>-77.038628</td>
+<td>0</td>
+<td>1991</td>
+<td>1991-03-29</td>
+<td>88</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>washingtondc</td>
+<td>38.88535</td>
+<td>-77.038628</td>
+<td>0</td>
+<td>1992</td>
+<td>1992-04-07</td>
+<td>98</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>washingtondc</td>
+<td>38.88535</td>
+<td>-77.038628</td>
+<td>0</td>
+<td>1993</td>
+<td>1993-04-11</td>
+<td>101</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>washingtondc</td>
+<td>38.88535</td>
+<td>-77.038628</td>
+<td>0</td>
+<td>1994</td>
+<td>1994-04-05</td>
+<td>95</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>washingtondc</td>
+<td>38.88535</td>
+<td>-77.038628</td>
+<td>0</td>
+<td>1995</td>
+<td>1995-04-02</td>
+<td>92</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>washingtondc</td>
+<td>38.88535</td>
+<td>-77.038628</td>
+<td>0</td>
+<td>1996</td>
+<td>1996-04-04</td>
+<td>95</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>washingtondc</td>
+<td>38.88535</td>
+<td>-77.038628</td>
+<td>0</td>
+<td>1997</td>
+<td>1997-03-26</td>
+<td>85</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>washingtondc</td>
+<td>38.88535</td>
+<td>-77.038628</td>
+<td>0</td>
+<td>1998</td>
+<td>1998-03-27</td>
+<td>86</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">9</td>
+<td>washingtondc</td>
+<td>38.88535</td>
+<td>-77.038628</td>
+<td>0</td>
+<td>1999</td>
+<td>1999-04-05</td>
+<td>95</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">10</td>
+<td>washingtondc</td>
+<td>38.88535</td>
+<td>-77.038628</td>
+<td>0</td>
+<td>2001</td>
+<td>2001-04-06</td>
+<td>96</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">11</td>
+<td>washingtondc</td>
+<td>38.88535</td>
+<td>-77.038628</td>
+<td>0</td>
+<td>2002</td>
+<td>2002-04-02</td>
+<td>92</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">12</td>
+<td>washingtondc</td>
+<td>38.88535</td>
+<td>-77.038628</td>
+<td>0</td>
+<td>2003</td>
+<td>2003-04-02</td>
+<td>92</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">13</td>
+<td>washingtondc</td>
+<td>38.88535</td>
+<td>-77.038628</td>
+<td>0</td>
+<td>2004</td>
+<td>2004-03-31</td>
+<td>91</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">14</td>
+<td>washingtondc</td>
+<td>38.88535</td>
+<td>-77.038628</td>
+<td>0</td>
+<td>2005</td>
+<td>2005-04-09</td>
+<td>99</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">15</td>
+<td>washingtondc</td>
+<td>38.88535</td>
+<td>-77.038628</td>
+<td>0</td>
+<td>2006</td>
+<td>2006-03-30</td>
+<td>89</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">16</td>
+<td>washingtondc</td>
+<td>38.88535</td>
+<td>-77.038628</td>
+<td>0</td>
+<td>2007</td>
+<td>2007-04-01</td>
+<td>91</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">17</td>
+<td>washingtondc</td>
+<td>38.88535</td>
+<td>-77.038628</td>
+<td>0</td>
+<td>2008</td>
+<td>2008-03-26</td>
+<td>86</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">18</td>
+<td>washingtondc</td>
+<td>38.88535</td>
+<td>-77.038628</td>
+<td>0</td>
+<td>2009</td>
+<td>2009-04-01</td>
+<td>91</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">19</td>
+<td>washingtondc</td>
+<td>38.88535</td>
+<td>-77.038628</td>
+<td>0</td>
+<td>2010</td>
+<td>2010-03-31</td>
+<td>90</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">20</td>
+<td>washingtondc</td>
+<td>38.88535</td>
+<td>-77.038628</td>
+<td>0</td>
+<td>2011</td>
+<td>2011-03-29</td>
+<td>88</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">21</td>
+<td>washingtondc</td>
+<td>38.88535</td>
+<td>-77.038628</td>
+<td>0</td>
+<td>2012</td>
+<td>2012-03-20</td>
+<td>80</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">22</td>
+<td>washingtondc</td>
+<td>38.88535</td>
+<td>-77.038628</td>
+<td>0</td>
+<td>2013</td>
+<td>2013-04-09</td>
+<td>99</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">23</td>
+<td>washingtondc</td>
+<td>38.88535</td>
+<td>-77.038628</td>
+<td>0</td>
+<td>2014</td>
+<td>2014-04-10</td>
+<td>100</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">24</td>
+<td>washingtondc</td>
+<td>38.88535</td>
+<td>-77.038628</td>
+<td>0</td>
+<td>2015</td>
+<td>2015-04-10</td>
+<td>100</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">25</td>
+<td>washingtondc</td>
+<td>38.88535</td>
+<td>-77.038628</td>
+<td>0</td>
+<td>2016</td>
+<td>2016-03-25</td>
+<td>85</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">26</td>
+<td>washingtondc</td>
+<td>38.88535</td>
+<td>-77.038628</td>
+<td>0</td>
+<td>2017</td>
+<td>2017-03-25</td>
+<td>84</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">27</td>
+<td>washingtondc</td>
+<td>38.88535</td>
+<td>-77.038628</td>
+<td>0</td>
+<td>2018</td>
+<td>2018-04-05</td>
+<td>95</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">28</td>
+<td>washingtondc</td>
+<td>38.88535</td>
+<td>-77.038628</td>
+<td>0</td>
+<td>2019</td>
+<td>2019-04-01</td>
+<td>91</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">29</td>
+<td>washingtondc</td>
+<td>38.88535</td>
+<td>-77.038628</td>
+<td>0</td>
+<td>2020</td>
+<td>2020-03-20</td>
+<td>80</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">30</td>
+<td>washingtondc</td>
+<td>38.88535</td>
+<td>-77.038628</td>
+<td>0</td>
+<td>2021</td>
+<td>2021-03-28</td>
+<td>87</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">31</td>
+<td>washingtondc</td>
+<td>38.88535</td>
+<td>-77.038628</td>
+<td>0</td>
+<td>2022</td>
+<td>2022-03-21</td>
+<td>80</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">32</td>
+<td>washingtondc</td>
+<td>38.88535</td>
+<td>-77.038628</td>
+<td>0</td>
+<td>2023</td>
+<td>2023-03-23</td>
+<td>82</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">33</td>
+<td>washingtondc</td>
+<td>38.88535</td>
+<td>-77.038628</td>
+<td>0</td>
+<td>2024</td>
+<td>2024-03-17</td>
+<td>77</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Now we have two dataframes:</p>
+<p>wdc_weather_df, daily weather data wdc_bloomdates_df, with bloom dates for each year</p>
+<p>Since we want to compare a bloom cycle, i.e from dormancy to bloom, we will count each year’s bloom as starting from the day after the previous bloom and ending with the current bloom.</p>
+<p>temp_of_day_from_bloom_df:</p>
+<ul>
+<li>rows: day of bloom (1 denotes first day after previous bloom)</li>
+<li>column: cycle (year)</li>
+</ul>
+<p>For example, if the column name is 1992_b, this means that this column the days leading up to the bloom in 1992. Thus the first row will take place in 1991, after the previous bloom 1991_b. The last value, prior to any NaN, is the bloom date.</p>
+<p>Each column represents one cycle, from post-bloom dormancy to the next bloom.</p>
+<p>We will also take the inverse of the dataframe, and call it temp_of_day_till_bloom_df:</p>
+<ul>
+<li>rows: day till bloom (1 denotes one day prior to the current bloom, and 0 be the bloom itself.)</li>
+<li>column: cycle (year)</li>
+</ul>
+<div id="f637fde5" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>bloom_dates <span class="op">=</span> wdc_bloomdates_df[<span class="st">'bloom_date'</span>]</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>temp_of_day_from_bloom_df <span class="op">=</span> pd.DataFrame() </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(bloom_dates) <span class="op">-</span> <span class="dv">1</span>):</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    data <span class="op">=</span> wdc_weather_df[(wdc_weather_df[<span class="st">'Date'</span>] <span class="op">&gt;</span> bloom_dates[i]) <span class="op">&amp;</span> (wdc_weather_df[<span class="st">'Date'</span>] <span class="op">&lt;=</span> bloom_dates[i<span class="op">+</span><span class="dv">1</span>])]</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    data.reset_index(drop<span class="op">=</span><span class="va">True</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    data[<span class="st">"day_from_bloom"</span>] <span class="op">=</span> data.index <span class="op">+</span> <span class="dv">1</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    pivot_df <span class="op">=</span> data.pivot_table(index<span class="op">=</span><span class="st">'day_from_bloom'</span>, values<span class="op">=</span><span class="st">'Temp_avg'</span>)</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    pivot_df.columns<span class="op">=</span>[<span class="bu">str</span>(bloom_dates[i<span class="op">+</span><span class="dv">1</span>].year)<span class="op">+</span><span class="st">'_b'</span>]</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    temp_of_day_from_bloom_df <span class="op">=</span> pd.concat([temp_of_day_from_bloom_df, pivot_df], axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>temp_of_day_till_bloom_df <span class="op">=</span> pd.DataFrame()</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>inv_temp_of_day_from_bloom_df <span class="op">=</span> temp_of_day_from_bloom_df.iloc[::<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> col <span class="kw">in</span> inv_temp_of_day_from_bloom_df.columns:</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>    nan_count <span class="op">=</span> inv_temp_of_day_from_bloom_df[col].isna().<span class="bu">sum</span>()</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Remove NaN</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>    temp_of_day_till_bloom_df[col] <span class="op">=</span> inv_temp_of_day_from_bloom_df[col].iloc[nan_count:].reset_index(drop<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>temp_of_day_till_bloom_df <span class="op">=</span> temp_of_day_till_bloom_df.head(<span class="dv">330</span>)</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>temp_of_day_till_bloom_df[<span class="st">'days_till_bloom'</span>] <span class="op">=</span> temp_of_day_till_bloom_df.index</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>temp_of_day_till_bloom_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="5">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">1991_b</th>
+<th data-quarto-table-cell-role="th">1992_b</th>
+<th data-quarto-table-cell-role="th">1993_b</th>
+<th data-quarto-table-cell-role="th">1994_b</th>
+<th data-quarto-table-cell-role="th">1995_b</th>
+<th data-quarto-table-cell-role="th">1996_b</th>
+<th data-quarto-table-cell-role="th">1997_b</th>
+<th data-quarto-table-cell-role="th">1998_b</th>
+<th data-quarto-table-cell-role="th">1999_b</th>
+<th data-quarto-table-cell-role="th">2001_b</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">2016_b</th>
+<th data-quarto-table-cell-role="th">2017_b</th>
+<th data-quarto-table-cell-role="th">2018_b</th>
+<th data-quarto-table-cell-role="th">2019_b</th>
+<th data-quarto-table-cell-role="th">2020_b</th>
+<th data-quarto-table-cell-role="th">2021_b</th>
+<th data-quarto-table-cell-role="th">2022_b</th>
+<th data-quarto-table-cell-role="th">2023_b</th>
+<th data-quarto-table-cell-role="th">2024_b</th>
+<th data-quarto-table-cell-role="th">days_till_bloom</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>36.7</td>
+<td>57.1</td>
+<td>53.3</td>
+<td>55.8</td>
+<td>42.7</td>
+<td>56.6</td>
+<td>52.5</td>
+<td>65.7</td>
+<td>51.1</td>
+<td>58.1</td>
+<td>...</td>
+<td>64.3</td>
+<td>64.9</td>
+<td>45.2</td>
+<td>41.8</td>
+<td>70.9</td>
+<td>59.8</td>
+<td>58.1</td>
+<td>65.3</td>
+<td>59.3</td>
+<td>0</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>71.9</td>
+<td>50.8</td>
+<td>27.7</td>
+<td>51.3</td>
+<td>45.3</td>
+<td>54.7</td>
+<td>47.4</td>
+<td>58.2</td>
+<td>64.1</td>
+<td>52.8</td>
+<td>...</td>
+<td>64.6</td>
+<td>47.2</td>
+<td>55.5</td>
+<td>55.3</td>
+<td>56.3</td>
+<td>61.5</td>
+<td>55.6</td>
+<td>56.0</td>
+<td>56.5</td>
+<td>1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>59.5</td>
+<td>45.8</td>
+<td>43.0</td>
+<td>59.1</td>
+<td>47.7</td>
+<td>45.5</td>
+<td>42.3</td>
+<td>43.1</td>
+<td>58.2</td>
+<td>51.7</td>
+<td>...</td>
+<td>61.4</td>
+<td>38.5</td>
+<td>48.7</td>
+<td>63.8</td>
+<td>51.4</td>
+<td>70.7</td>
+<td>65.8</td>
+<td>48.0</td>
+<td>65.0</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>50.1</td>
+<td>41.0</td>
+<td>52.8</td>
+<td>55.8</td>
+<td>51.8</td>
+<td>24.4</td>
+<td>44.0</td>
+<td>41.2</td>
+<td>60.1</td>
+<td>49.4</td>
+<td>...</td>
+<td>49.3</td>
+<td>47.2</td>
+<td>45.8</td>
+<td>59.3</td>
+<td>51.1</td>
+<td>58.6</td>
+<td>54.2</td>
+<td>41.1</td>
+<td>61.5</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>51.8</td>
+<td>38.4</td>
+<td>47.8</td>
+<td>51.8</td>
+<td>48.3</td>
+<td>52.3</td>
+<td>54.8</td>
+<td>42.0</td>
+<td>58.3</td>
+<td>48.4</td>
+<td>...</td>
+<td>44.2</td>
+<td>53.6</td>
+<td>55.7</td>
+<td>49.6</td>
+<td>46.2</td>
+<td>56.4</td>
+<td>54.8</td>
+<td>36.9</td>
+<td>58.3</td>
+<td>4</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">325</td>
+<td>67.6</td>
+<td>61.1</td>
+<td>64.3</td>
+<td>69.0</td>
+<td>64.0</td>
+<td>52.3</td>
+<td>50.9</td>
+<td>63.0</td>
+<td>69.5</td>
+<td>61.0</td>
+<td>...</td>
+<td>72.7</td>
+<td>56.2</td>
+<td>66.0</td>
+<td>73.9</td>
+<td>66.9</td>
+<td>52.0</td>
+<td>64.2</td>
+<td>65.1</td>
+<td>60.5</td>
+<td>325</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">326</td>
+<td>63.0</td>
+<td>50.4</td>
+<td>60.4</td>
+<td>62.7</td>
+<td>61.3</td>
+<td>35.4</td>
+<td>55.9</td>
+<td>60.4</td>
+<td>58.0</td>
+<td>62.0</td>
+<td>...</td>
+<td>71.5</td>
+<td>64.1</td>
+<td>65.3</td>
+<td>73.0</td>
+<td>54.9</td>
+<td>53.6</td>
+<td>75.6</td>
+<td>58.9</td>
+<td>56.9</td>
+<td>326</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">327</td>
+<td>59.6</td>
+<td>75.8</td>
+<td>60.8</td>
+<td>65.2</td>
+<td>62.3</td>
+<td>67.4</td>
+<td>65.3</td>
+<td>58.1</td>
+<td>57.8</td>
+<td>59.7</td>
+<td>...</td>
+<td>69.3</td>
+<td>62.1</td>
+<td>53.5</td>
+<td>68.9</td>
+<td>60.0</td>
+<td>66.3</td>
+<td>73.9</td>
+<td>57.1</td>
+<td>53.4</td>
+<td>327</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">328</td>
+<td>44.3</td>
+<td>77.3</td>
+<td>46.3</td>
+<td>67.7</td>
+<td>60.5</td>
+<td>65.4</td>
+<td>63.4</td>
+<td>66.3</td>
+<td>53.5</td>
+<td>65.6</td>
+<td>...</td>
+<td>63.5</td>
+<td>54.6</td>
+<td>54.4</td>
+<td>67.5</td>
+<td>63.3</td>
+<td>66.1</td>
+<td>66.5</td>
+<td>54.8</td>
+<td>53.3</td>
+<td>328</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">329</td>
+<td>50.2</td>
+<td>68.7</td>
+<td>48.5</td>
+<td>75.0</td>
+<td>43.2</td>
+<td>39.1</td>
+<td>56.5</td>
+<td>60.3</td>
+<td>54.9</td>
+<td>71.1</td>
+<td>...</td>
+<td>57.6</td>
+<td>53.7</td>
+<td>55.9</td>
+<td>66.8</td>
+<td>65.4</td>
+<td>61.6</td>
+<td>57.0</td>
+<td>49.3</td>
+<td>57.4</td>
+<td>329</td>
+</tr>
+</tbody>
+</table>
+
+<p>330 rows × 34 columns</p>
+</div>
+</div>
+</div>
+<p>Now, let’s add some more complicated features onto the dataframe. We will look at functions of temperature, as it is theorized that bloom cycles occur after certain thresholds of temperature are met. The following functions were used as features:</p>
+<p>All data is created and stored in the new dataframe, df.</p>
+<p>Each feature name begins with the year of bloom, followed by the following suffix. For example, the 1991 bloom cycle will have the features:</p>
+<ul>
+<li>1991_b : daily average Temperature</li>
+<li>1991_b_sum_sq : sum of squared daily temperature, rolling over last 21 days</li>
+<li>1991_b_sum_log : sum of log daily temperature, rolling over last 21 days</li>
+</ul>
+<p>… and so on. Below are definitions of all features</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 31%">
+<col style="width: 68%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Feature</th>
+<th>10</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>_sum_sq</td>
+<td>sum of squared daily temperature, rolling over last 21 days</td>
+</tr>
+<tr class="even">
+<td>_sum_log</td>
+<td>sum of log daily temperature, rolling over last 21 days</td>
+</tr>
+<tr class="odd">
+<td>_sum_dd32</td>
+<td>sum of number of days where temperature exceeds 32 F, rolling over last 21 days</td>
+</tr>
+<tr class="even">
+<td>_sum_dd50</td>
+<td>sum of number of days where temperature exceeds 50 F, rolling over last 21 days</td>
+</tr>
+<tr class="odd">
+<td>_sum_last14</td>
+<td>sum of daily temperature, rolling over last 14 days</td>
+</tr>
+<tr class="even">
+<td>_norm_dd_32</td>
+<td>sum of days where days above 32F are (+1) and days below are (-1), rolling over last 21 days</td>
+</tr>
+<tr class="odd">
+<td>_norm_dd_50</td>
+<td>sum of days where days above 50F are (+1) and days below are (-1), rolling over last 21 days</td>
+</tr>
+<tr class="even">
+<td>_rolling_freeze</td>
+<td>sum of number of days where temperature is below 32 F, rolling over last 21 days</td>
+</tr>
+<tr class="odd">
+<td>_rolling_chill</td>
+<td>sum of number of days where temperature is between 32 F and 50 F, rolling over last 21 days</td>
+</tr>
+<tr class="even">
+<td>_rolling_temp_change</td>
+<td>temperature change between last 7 days</td>
+</tr>
+</tbody>
+</table>
+<div id="a3752c09" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> temp_of_day_till_bloom_df.copy()</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Functions of temperature for each bloom cycle</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> col <span class="kw">in</span> df.columns:</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> col.endswith(<span class="st">'_b'</span>):</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>        df[<span class="ss">f'</span><span class="sc">{</span>col<span class="sc">}</span><span class="ss">_sum_sq'</span>] <span class="op">=</span> df[col][::<span class="op">-</span><span class="dv">1</span>].<span class="bu">pow</span>(<span class="dv">2</span>).rolling(window<span class="op">=</span><span class="dv">21</span>, min_periods<span class="op">=</span><span class="dv">1</span>).<span class="bu">sum</span>()[::<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>        df[<span class="ss">f'</span><span class="sc">{</span>col<span class="sc">}</span><span class="ss">_sum_log'</span>] <span class="op">=</span> df[col][::<span class="op">-</span><span class="dv">1</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x: np.log(x <span class="op">+</span> <span class="dv">1</span>)).rolling(window<span class="op">=</span><span class="dv">21</span>, min_periods<span class="op">=</span><span class="dv">1</span>).<span class="bu">sum</span>()[::<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>        df[<span class="ss">f'</span><span class="sc">{</span>col<span class="sc">}</span><span class="ss">_sum_dd32'</span>] <span class="op">=</span> (df[col][::<span class="op">-</span><span class="dv">1</span>] <span class="op">&gt;</span> <span class="dv">32</span>).rolling(window<span class="op">=</span><span class="dv">21</span>, min_periods<span class="op">=</span><span class="dv">1</span>).<span class="bu">sum</span>()[::<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>        df[<span class="ss">f'</span><span class="sc">{</span>col<span class="sc">}</span><span class="ss">_sum_dd50'</span>] <span class="op">=</span> (df[col][::<span class="op">-</span><span class="dv">1</span>] <span class="op">&gt;</span> <span class="dv">50</span>).rolling(window<span class="op">=</span><span class="dv">21</span>, min_periods<span class="op">=</span><span class="dv">1</span>).<span class="bu">sum</span>()[::<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>        df[<span class="ss">f'</span><span class="sc">{</span>col<span class="sc">}</span><span class="ss">_sum_last14'</span>] <span class="op">=</span> df[col][::<span class="op">-</span><span class="dv">1</span>].rolling(window<span class="op">=</span><span class="dv">14</span>, min_periods<span class="op">=</span><span class="dv">1</span>).<span class="bu">sum</span>()[::<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>        df[<span class="ss">f'</span><span class="sc">{</span>col<span class="sc">}</span><span class="ss">_norm_dd_32'</span>] <span class="op">=</span> ((df[col] <span class="op">&gt;</span> <span class="dv">32</span>).astype(<span class="bu">int</span>) <span class="op">*</span> <span class="dv">1</span> <span class="op">+</span> (df[col] <span class="op">&lt;=</span> <span class="dv">32</span>).astype(<span class="bu">int</span>) <span class="op">*</span> <span class="op">-</span><span class="dv">1</span>).rolling(window<span class="op">=</span><span class="dv">21</span>, min_periods<span class="op">=</span><span class="dv">1</span>).<span class="bu">sum</span>()[::<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>        df[<span class="ss">f'</span><span class="sc">{</span>col<span class="sc">}</span><span class="ss">_norm_dd_50'</span>] <span class="op">=</span> ((df[col] <span class="op">&gt;</span> <span class="dv">50</span>).astype(<span class="bu">int</span>) <span class="op">*</span> <span class="dv">1</span> <span class="op">+</span> (df[col] <span class="op">&lt;=</span> <span class="dv">50</span>).astype(<span class="bu">int</span>) <span class="op">*</span> <span class="op">-</span><span class="dv">1</span>).rolling(window<span class="op">=</span><span class="dv">21</span>, min_periods<span class="op">=</span><span class="dv">1</span>).<span class="bu">sum</span>()[::<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>        df[<span class="ss">f'</span><span class="sc">{</span>col<span class="sc">}</span><span class="ss">_rolling_freeze'</span>] <span class="op">=</span> (df[col][::<span class="op">-</span><span class="dv">1</span>] <span class="op">&lt;</span> <span class="dv">32</span>).rolling(window<span class="op">=</span><span class="dv">21</span>, min_periods<span class="op">=</span><span class="dv">1</span>).<span class="bu">sum</span>()[::<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>        df[<span class="ss">f'</span><span class="sc">{</span>col<span class="sc">}</span><span class="ss">_rolling_chill'</span>] <span class="op">=</span> ((df[col][::<span class="op">-</span><span class="dv">1</span>] <span class="op">&gt;=</span> <span class="dv">32</span>) <span class="op">&amp;</span> (df[col][::<span class="op">-</span><span class="dv">1</span>] <span class="op">&lt;</span> <span class="dv">50</span>)).rolling(window<span class="op">=</span><span class="dv">21</span>, min_periods<span class="op">=</span><span class="dv">1</span>).<span class="bu">sum</span>()[::<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>        df[<span class="ss">f'</span><span class="sc">{</span>col<span class="sc">}</span><span class="ss">_rolling_temp_change'</span>] <span class="op">=</span> df[col][::<span class="op">-</span><span class="dv">1</span>].diff(periods<span class="op">=</span><span class="dv">7</span>)[::<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>cols <span class="op">=</span> [<span class="st">'days_till_bloom'</span>] <span class="op">+</span> [c <span class="cf">for</span> c <span class="kw">in</span> df.columns <span class="cf">if</span> c <span class="op">!=</span> <span class="st">'days_till_bloom'</span>]</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df[cols]</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.head(<span class="dv">80</span>)</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="6">
+<div>
+
+
+<table class="dataframe caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">days_till_bloom</th>
+<th data-quarto-table-cell-role="th">1991_b</th>
+<th data-quarto-table-cell-role="th">1992_b</th>
+<th data-quarto-table-cell-role="th">1993_b</th>
+<th data-quarto-table-cell-role="th">1994_b</th>
+<th data-quarto-table-cell-role="th">1995_b</th>
+<th data-quarto-table-cell-role="th">1996_b</th>
+<th data-quarto-table-cell-role="th">1997_b</th>
+<th data-quarto-table-cell-role="th">1998_b</th>
+<th data-quarto-table-cell-role="th">1999_b</th>
+<th data-quarto-table-cell-role="th">...</th>
+<th data-quarto-table-cell-role="th">2024_b_sum_sq</th>
+<th data-quarto-table-cell-role="th">2024_b_sum_log</th>
+<th data-quarto-table-cell-role="th">2024_b_sum_dd32</th>
+<th data-quarto-table-cell-role="th">2024_b_sum_dd50</th>
+<th data-quarto-table-cell-role="th">2024_b_sum_last14</th>
+<th data-quarto-table-cell-role="th">2024_b_norm_dd_32</th>
+<th data-quarto-table-cell-role="th">2024_b_norm_dd_50</th>
+<th data-quarto-table-cell-role="th">2024_b_rolling_freeze</th>
+<th data-quarto-table-cell-role="th">2024_b_rolling_chill</th>
+<th data-quarto-table-cell-role="th">2024_b_rolling_temp_change</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>0</td>
+<td>36.7</td>
+<td>57.1</td>
+<td>53.3</td>
+<td>55.8</td>
+<td>42.7</td>
+<td>56.6</td>
+<td>52.5</td>
+<td>65.7</td>
+<td>51.1</td>
+<td>...</td>
+<td>60490.21</td>
+<td>83.770057</td>
+<td>21.0</td>
+<td>15.0</td>
+<td>770.8</td>
+<td>1.0</td>
+<td>1.0</td>
+<td>0.0</td>
+<td>6.0</td>
+<td>13.3</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>1</td>
+<td>71.9</td>
+<td>50.8</td>
+<td>27.7</td>
+<td>51.3</td>
+<td>45.3</td>
+<td>54.7</td>
+<td>47.4</td>
+<td>58.2</td>
+<td>64.1</td>
+<td>...</td>
+<td>58387.48</td>
+<td>83.323977</td>
+<td>21.0</td>
+<td>14.0</td>
+<td>765.1</td>
+<td>2.0</td>
+<td>2.0</td>
+<td>0.0</td>
+<td>7.0</td>
+<td>7.8</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>2</td>
+<td>59.5</td>
+<td>45.8</td>
+<td>43.0</td>
+<td>59.1</td>
+<td>47.7</td>
+<td>45.5</td>
+<td>42.3</td>
+<td>43.1</td>
+<td>58.2</td>
+<td>...</td>
+<td>57202.27</td>
+<td>83.096476</td>
+<td>21.0</td>
+<td>13.0</td>
+<td>756.0</td>
+<td>3.0</td>
+<td>3.0</td>
+<td>0.0</td>
+<td>8.0</td>
+<td>12.9</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>3</td>
+<td>50.1</td>
+<td>41.0</td>
+<td>52.8</td>
+<td>55.8</td>
+<td>51.8</td>
+<td>24.4</td>
+<td>44.0</td>
+<td>41.2</td>
+<td>60.1</td>
+<td>...</td>
+<td>55139.52</td>
+<td>82.767551</td>
+<td>21.0</td>
+<td>12.0</td>
+<td>734.9</td>
+<td>4.0</td>
+<td>4.0</td>
+<td>0.0</td>
+<td>9.0</td>
+<td>3.9</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>4</td>
+<td>51.8</td>
+<td>38.4</td>
+<td>47.8</td>
+<td>51.8</td>
+<td>48.3</td>
+<td>52.3</td>
+<td>54.8</td>
+<td>42.0</td>
+<td>58.3</td>
+<td>...</td>
+<td>53054.71</td>
+<td>82.374805</td>
+<td>21.0</td>
+<td>11.0</td>
+<td>714.6</td>
+<td>5.0</td>
+<td>5.0</td>
+<td>0.0</td>
+<td>10.0</td>
+<td>5.4</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">75</td>
+<td>75</td>
+<td>36.6</td>
+<td>28.1</td>
+<td>30.6</td>
+<td>7.9</td>
+<td>42.0</td>
+<td>23.9</td>
+<td>38.0</td>
+<td>43.8</td>
+<td>44.3</td>
+<td>...</td>
+<td>42792.07</td>
+<td>80.265438</td>
+<td>21.0</td>
+<td>4.0</td>
+<td>629.6</td>
+<td>5.0</td>
+<td>-19.0</td>
+<td>0.0</td>
+<td>17.0</td>
+<td>-6.1</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">76</td>
+<td>76</td>
+<td>30.5</td>
+<td>29.0</td>
+<td>34.2</td>
+<td>2.1</td>
+<td>46.6</td>
+<td>35.3</td>
+<td>32.5</td>
+<td>44.5</td>
+<td>45.2</td>
+<td>...</td>
+<td>42665.03</td>
+<td>80.226121</td>
+<td>21.0</td>
+<td>4.0</td>
+<td>627.4</td>
+<td>7.0</td>
+<td>-19.0</td>
+<td>0.0</td>
+<td>17.0</td>
+<td>-6.4</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">77</td>
+<td>77</td>
+<td>13.3</td>
+<td>36.8</td>
+<td>45.2</td>
+<td>18.3</td>
+<td>42.4</td>
+<td>24.9</td>
+<td>33.2</td>
+<td>56.7</td>
+<td>48.7</td>
+<td>...</td>
+<td>42521.03</td>
+<td>80.182211</td>
+<td>21.0</td>
+<td>4.0</td>
+<td>638.0</td>
+<td>9.0</td>
+<td>-19.0</td>
+<td>0.0</td>
+<td>17.0</td>
+<td>-0.8</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">78</td>
+<td>78</td>
+<td>41.5</td>
+<td>29.8</td>
+<td>43.1</td>
+<td>12.0</td>
+<td>44.5</td>
+<td>31.9</td>
+<td>39.0</td>
+<td>62.0</td>
+<td>45.3</td>
+<td>...</td>
+<td>43692.63</td>
+<td>80.408414</td>
+<td>21.0</td>
+<td>5.0</td>
+<td>643.8</td>
+<td>11.0</td>
+<td>-19.0</td>
+<td>0.0</td>
+<td>16.0</td>
+<td>1.1</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">79</td>
+<td>79</td>
+<td>31.8</td>
+<td>20.1</td>
+<td>23.9</td>
+<td>11.5</td>
+<td>53.1</td>
+<td>24.1</td>
+<td>52.4</td>
+<td>60.5</td>
+<td>39.0</td>
+<td>...</td>
+<td>43921.88</td>
+<td>80.461788</td>
+<td>21.0</td>
+<td>5.0</td>
+<td>645.5</td>
+<td>13.0</td>
+<td>-19.0</td>
+<td>0.0</td>
+<td>16.0</td>
+<td>7.5</td>
+</tr>
+</tbody>
+</table>
+
+<p>80 rows × 364 columns</p>
+</div>
+</div>
+</div>
+<p>Let’s see what our data looks like.</p>
+<div id="360b64bd" class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Show raw data</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">10</span>))</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> year <span class="kw">in</span> temp_of_day_from_bloom_df.columns:</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    bloom_cycle <span class="op">=</span> df[year]</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    plt.plot(bloom_cycle.index, bloom_cycle.values, label<span class="op">=</span><span class="bu">str</span>(year))</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Number of Days Till Bloom'</span>)</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Temperature in F'</span>)</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Temperature Over Bloom Cycles'</span>)</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>plt.legend(title<span class="op">=</span><span class="st">"Year"</span>, bbox_to_anchor<span class="op">=</span>(<span class="dv">1</span>, <span class="dv">1</span>), loc<span class="op">=</span><span class="st">'upper left'</span>)</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="predictions_files/figure-html/cell-8-output-1.png" width="912" height="819" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div id="cd004743" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>window <span class="op">=</span> <span class="dv">7</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">10</span>))  </span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> year <span class="kw">in</span> temp_of_day_from_bloom_df.columns:</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    bloom_cycle <span class="op">=</span> df[year]</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    smoothed <span class="op">=</span> bloom_cycle.rolling(window<span class="op">=</span>window).mean()  </span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    plt.plot(smoothed.index, smoothed.values, label<span class="op">=</span><span class="bu">str</span>(year))</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Number of Days Till Bloom'</span>)</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Temperature (Temp Avg), in F'</span>)</span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Smoothed Temperature Change Over Bloom Cycles'</span>)</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>plt.legend(title<span class="op">=</span><span class="st">"Year"</span>, bbox_to_anchor<span class="op">=</span>(<span class="fl">1.05</span>, <span class="dv">1</span>), loc<span class="op">=</span><span class="st">'upper left'</span>)</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="predictions_files/figure-html/cell-9-output-1.png" width="950" height="950" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Looking at continuous functions of temperature:</p>
+<div id="9d3c6287" class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>feature_suffixes_cont <span class="op">=</span> [<span class="st">'_sum_sq'</span>, <span class="st">'_sum_log'</span>, <span class="st">'_sum_last14'</span>, <span class="st">'_rolling_temp_change'</span>]</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> suffix <span class="kw">in</span> feature_suffixes_cont:</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    cv <span class="op">=</span> df[[col <span class="cf">for</span> col <span class="kw">in</span> df.columns <span class="cf">if</span> col.endswith(suffix)]]</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">3</span>)) </span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    plt.xlabel(<span class="st">'Number of Days Till Bloom'</span>)</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>    plt.xticks(np.arange(<span class="dv">0</span>, <span class="dv">115</span>, <span class="dv">5</span>))</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    plt.title(<span class="st">'Patterns of '</span> <span class="op">+</span> suffix)</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    plt.ylabel(suffix)</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> year <span class="kw">in</span> cv.columns:</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>        bloom_cycle <span class="op">=</span> df[year]</span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>        plt.plot(bloom_cycle.index,bloom_cycle.values)</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>    plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="predictions_files/figure-html/cell-10-output-1.png" width="833" height="302" class="figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="predictions_files/figure-html/cell-10-output-2.png" width="808" height="302" class="figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="predictions_files/figure-html/cell-10-output-3.png" width="816" height="302" class="figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="predictions_files/figure-html/cell-10-output-4.png" width="819" height="302" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Now discrete functions of temperature:</p>
+<div id="c32f653a" class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>feature_suffixes_disc <span class="op">=</span> [<span class="st">'_sum_dd32'</span>, <span class="st">'_sum_dd50'</span>,<span class="st">'_norm_dd_32'</span>, <span class="st">'_norm_dd_50'</span>,<span class="st">'_rolling_freeze'</span>, <span class="st">'_rolling_chill'</span>,]</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> suffix <span class="kw">in</span> feature_suffixes_disc:</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    cv <span class="op">=</span> df[[col <span class="cf">for</span> col <span class="kw">in</span> df.columns <span class="cf">if</span> col.endswith(suffix)]]</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">3</span>))</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    plt.xlabel(<span class="st">'Number of Days Till Bloom'</span>)</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    plt.xticks(np.arange(<span class="dv">0</span>, <span class="dv">115</span>, <span class="dv">5</span>))</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    plt.title(<span class="st">'Patterns of '</span> <span class="op">+</span> suffix)</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    plt.ylabel(suffix)</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> year <span class="kw">in</span> cv.columns:</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>        bloom_cycle <span class="op">=</span> df[year]</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>        plt.plot(bloom_cycle.index,bloom_cycle.values,</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>                 marker<span class="op">=</span><span class="st">'o'</span>, linestyle<span class="op">=</span><span class="st">'-'</span>, markersize<span class="op">=</span><span class="dv">4</span>, label<span class="op">=</span>year</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>    plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="predictions_files/figure-html/cell-11-output-1.png" width="808" height="302" class="figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="predictions_files/figure-html/cell-11-output-2.png" width="821" height="302" class="figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="predictions_files/figure-html/cell-11-output-3.png" width="819" height="302" class="figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="predictions_files/figure-html/cell-11-output-4.png" width="819" height="302" class="figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="predictions_files/figure-html/cell-11-output-5.png" width="808" height="302" class="figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="predictions_files/figure-html/cell-11-output-6.png" width="808" height="302" class="figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="prediction" class="level1">
+<h1>Prediction</h1>
+<p>Now let’s define some methods that will help us experiment and predict on data.</p>
+<div id="5279b49b" class="cell" data-execution_count="11">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># DEFINE METHODS FOR PREDICTING BLOOM FOR 2025</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> extract_historical_feature_sets(df, feature_suffixes):</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns a dict where keys are feature suffixes, and values are DF of those suffixes.</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    feature_sets <span class="op">=</span> {}</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> suffix <span class="kw">in</span> feature_suffixes:</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>        historical_features <span class="op">=</span> df[[col <span class="cf">for</span> col <span class="kw">in</span> df.columns <span class="cf">if</span> col.endswith(suffix)]]</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>        feature_sets[suffix] <span class="op">=</span> historical_features</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> feature_sets</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> predict_from_arrays(historical_feature_sets, test_sequences):</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a><span class="co">    - historical_feature_sets: dict where keys are feature suffixes, and values are DF of those suffixes</span></span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a><span class="co">    - test_sequences: dict where keys are feature suffixes, values are test numpy arrays.</span></span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a><span class="co">        </span></span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns:</span></span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a><span class="co">        - results: dict with best-matching year, best days_till_bloom index, and distance for each feature type.</span></span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>    results <span class="op">=</span> {}</span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> suffix, test_seq <span class="kw">in</span> test_sequences.items():</span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a>        best_match <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a>        best_distance <span class="op">=</span> <span class="bu">float</span>(<span class="st">'inf'</span>)</span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a>        best_days_till_bloom <span class="op">=</span> <span class="va">None</span></span>
+<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a>        historical_data <span class="op">=</span> historical_feature_sets[suffix]</span>
+<span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-30"><a href="#cb11-30" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> year <span class="kw">in</span> historical_data.columns:</span>
+<span id="cb11-31"><a href="#cb11-31" aria-hidden="true" tabindex="-1"></a>            hist_seq <span class="op">=</span> historical_data[year].values.flatten()</span>
+<span id="cb11-32"><a href="#cb11-32" aria-hidden="true" tabindex="-1"></a>                        </span>
+<span id="cb11-33"><a href="#cb11-33" aria-hidden="true" tabindex="-1"></a>            <span class="co"># FastDTW over a sliding window</span></span>
+<span id="cb11-34"><a href="#cb11-34" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> days_till_bloom <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(hist_seq) <span class="op">-</span> <span class="bu">len</span>(test_seq) <span class="op">+</span> <span class="dv">1</span>):</span>
+<span id="cb11-35"><a href="#cb11-35" aria-hidden="true" tabindex="-1"></a>                window <span class="op">=</span> hist_seq[days_till_bloom: days_till_bloom <span class="op">+</span> <span class="bu">len</span>(test_seq)]</span>
+<span id="cb11-36"><a href="#cb11-36" aria-hidden="true" tabindex="-1"></a>                distance, _ <span class="op">=</span> fastdtw(window, test_seq, dist<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb11-37"><a href="#cb11-37" aria-hidden="true" tabindex="-1"></a>                </span>
+<span id="cb11-38"><a href="#cb11-38" aria-hidden="true" tabindex="-1"></a>                <span class="cf">if</span> distance <span class="op">&lt;</span> best_distance:</span>
+<span id="cb11-39"><a href="#cb11-39" aria-hidden="true" tabindex="-1"></a>                    best_distance <span class="op">=</span> distance</span>
+<span id="cb11-40"><a href="#cb11-40" aria-hidden="true" tabindex="-1"></a>                    best_match <span class="op">=</span> year</span>
+<span id="cb11-41"><a href="#cb11-41" aria-hidden="true" tabindex="-1"></a>                    best_days_till_bloom <span class="op">=</span> days_till_bloom</span>
+<span id="cb11-42"><a href="#cb11-42" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb11-43"><a href="#cb11-43" aria-hidden="true" tabindex="-1"></a>        results[suffix] <span class="op">=</span> (best_match, best_days_till_bloom, best_distance)</span>
+<span id="cb11-44"><a href="#cb11-44" aria-hidden="true" tabindex="-1"></a>        <span class="co">#print(f"Feature: {suffix}, Best Match: {best_match}, Days_till_bloom: {best_days_till_bloom}, Distance: {best_distance}")</span></span>
+<span id="cb11-45"><a href="#cb11-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-46"><a href="#cb11-46" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> results</span>
+<span id="cb11-47"><a href="#cb11-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-48"><a href="#cb11-48" aria-hidden="true" tabindex="-1"></a><span class="co"># feature suffixes</span></span>
+<span id="cb11-49"><a href="#cb11-49" aria-hidden="true" tabindex="-1"></a>feature_suffixes <span class="op">=</span> [<span class="st">'_sum_sq'</span>, <span class="st">'_sum_log'</span>, <span class="st">'_sum_dd32'</span>, <span class="st">'_sum_dd50'</span>, <span class="st">'_sum_last14'</span>, </span>
+<span id="cb11-50"><a href="#cb11-50" aria-hidden="true" tabindex="-1"></a>    <span class="st">'_norm_dd_32'</span>, <span class="st">'_norm_dd_50'</span>,<span class="st">'_rolling_freeze'</span>, <span class="st">'_rolling_chill'</span>, <span class="st">'_rolling_temp_change'</span></span>
+<span id="cb11-51"><a href="#cb11-51" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb11-52"><a href="#cb11-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-53"><a href="#cb11-53" aria-hidden="true" tabindex="-1"></a><span class="co"># historical feature sets</span></span>
+<span id="cb11-54"><a href="#cb11-54" aria-hidden="true" tabindex="-1"></a>historical_feature_sets <span class="op">=</span> extract_historical_feature_sets(df, feature_suffixes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Here, the prediction function uses FastDTW to compare vectors of time series. It finds the lowest Euclidean norm (L2) between a given input and a historical data. This slice of temperature input is thought to be “sliding” across the time, checking for patterns and attempting to match it to a historical bloom cycle. After completing the computations, it returns the lowest L2 norm and what the implied days_till_bloom is. This can be used to predict where we currently are in the cycle, which intuitively allows us to estimate when it will bloom. This process was used due to the fact that future temperature data would not need to be modeled or predicted.</p>
+<div id="63cb6a7a" class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># BUILDING 2025 TEMPERATURE SET DATAFRAME FOR 5 LOCATIONS</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>wdc_weather2025 <span class="op">=</span> pd.read_csv(<span class="st">'data/wdc_weather2025.csv'</span>)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>liestal_weather2025 <span class="op">=</span> pd.read_csv(<span class="st">'data/liestal_weather2025.csv'</span>)</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>kyoto_weather2025 <span class="op">=</span> pd.read_csv(<span class="st">'data/kyoto_weather2025.csv'</span>)</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>vancouver_weather2025 <span class="op">=</span> pd.read_csv(<span class="st">'data/vancouver_weather2025.csv'</span>)</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>nyc_weather2025 <span class="op">=</span> pd.read_csv(<span class="st">'data/nyc_weather2025.csv'</span>)</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>wdc_weather2025[<span class="st">'Date'</span>] <span class="op">=</span> pd.to_datetime(wdc_weather2025[<span class="st">'Date'</span>])</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>liestal_weather2025[<span class="st">'Date'</span>] <span class="op">=</span> pd.to_datetime(liestal_weather2025[<span class="st">'Date'</span>])</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>kyoto_weather2025[<span class="st">'Date'</span>] <span class="op">=</span> pd.to_datetime(kyoto_weather2025[<span class="st">'Date'</span>])</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>vancouver_weather2025[<span class="st">'Date'</span>] <span class="op">=</span> pd.to_datetime(vancouver_weather2025[<span class="st">'Date'</span>])</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>nyc_weather2025[<span class="st">'Date'</span>] <span class="op">=</span> pd.to_datetime(nyc_weather2025[<span class="st">'Date'</span>])</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>wdc_weather2025.name <span class="op">=</span> <span class="st">"Washington DC"</span></span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>liestal_weather2025.name <span class="op">=</span> <span class="st">"Liestal"</span></span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>kyoto_weather2025.name <span class="op">=</span> <span class="st">"Kyoto"</span></span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>vancouver_weather2025.name <span class="op">=</span> <span class="st">"Vancouver"</span></span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>nyc_weather2025.name <span class="op">=</span> <span class="st">"NYC"</span></span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>all_locations <span class="op">=</span> [wdc_weather2025,liestal_weather2025, kyoto_weather2025, vancouver_weather2025, nyc_weather2025]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This function computes the temperature prediction for all 5 locations:</p>
+<div id="6ad67bba" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> []</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> loc <span class="kw">in</span> all_locations:</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    temp_2025_dc <span class="op">=</span> loc.sort_values(by<span class="op">=</span><span class="st">'Date'</span>, ascending<span class="op">=</span><span class="va">False</span>)[[<span class="st">'Temp_avg'</span>]]</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    temp_2025_dc.columns<span class="op">=</span>[<span class="st">'2025_b'</span>]</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> col <span class="kw">in</span> temp_2025_dc.columns:</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> col.endswith(<span class="st">'_b'</span>):</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>            temp_2025_dc[<span class="ss">f'</span><span class="sc">{</span>col<span class="sc">}</span><span class="ss">_sum_sq'</span>] <span class="op">=</span> temp_2025_dc[col][::<span class="op">-</span><span class="dv">1</span>].<span class="bu">pow</span>(<span class="dv">2</span>).rolling(window<span class="op">=</span><span class="dv">21</span>, min_periods<span class="op">=</span><span class="dv">1</span>).<span class="bu">sum</span>()[::<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>            temp_2025_dc[<span class="ss">f'</span><span class="sc">{</span>col<span class="sc">}</span><span class="ss">_sum_log'</span>] <span class="op">=</span> temp_2025_dc[col][::<span class="op">-</span><span class="dv">1</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x: np.log(x <span class="op">+</span> <span class="dv">1</span>)).rolling(window<span class="op">=</span><span class="dv">21</span>, min_periods<span class="op">=</span><span class="dv">1</span>).<span class="bu">sum</span>()[::<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>            temp_2025_dc[<span class="ss">f'</span><span class="sc">{</span>col<span class="sc">}</span><span class="ss">_sum_dd32'</span>] <span class="op">=</span> (temp_2025_dc[col][::<span class="op">-</span><span class="dv">1</span>] <span class="op">&gt;</span> <span class="dv">32</span>).rolling(window<span class="op">=</span><span class="dv">21</span>, min_periods<span class="op">=</span><span class="dv">1</span>).<span class="bu">sum</span>()[::<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>            temp_2025_dc[<span class="ss">f'</span><span class="sc">{</span>col<span class="sc">}</span><span class="ss">_sum_dd50'</span>] <span class="op">=</span> (temp_2025_dc[col][::<span class="op">-</span><span class="dv">1</span>] <span class="op">&gt;</span> <span class="dv">50</span>).rolling(window<span class="op">=</span><span class="dv">21</span>, min_periods<span class="op">=</span><span class="dv">1</span>).<span class="bu">sum</span>()[::<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>            temp_2025_dc[<span class="ss">f'</span><span class="sc">{</span>col<span class="sc">}</span><span class="ss">_sum_last14'</span>] <span class="op">=</span> temp_2025_dc[col][::<span class="op">-</span><span class="dv">1</span>].rolling(window<span class="op">=</span><span class="dv">14</span>, min_periods<span class="op">=</span><span class="dv">1</span>).<span class="bu">sum</span>()[::<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>            temp_2025_dc[<span class="ss">f'</span><span class="sc">{</span>col<span class="sc">}</span><span class="ss">_norm_dd_32'</span>] <span class="op">=</span> ((temp_2025_dc[col] <span class="op">&gt;</span> <span class="dv">32</span>).astype(<span class="bu">int</span>) <span class="op">*</span> <span class="dv">1</span> <span class="op">+</span> (temp_2025_dc[col] <span class="op">&lt;=</span> <span class="dv">32</span>).astype(<span class="bu">int</span>) <span class="op">*</span> <span class="op">-</span><span class="dv">1</span>).rolling(window<span class="op">=</span><span class="dv">21</span>, min_periods<span class="op">=</span><span class="dv">1</span>).<span class="bu">sum</span>()[::<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>            temp_2025_dc[<span class="ss">f'</span><span class="sc">{</span>col<span class="sc">}</span><span class="ss">_norm_dd_50'</span>] <span class="op">=</span> ((temp_2025_dc[col] <span class="op">&gt;</span> <span class="dv">50</span>).astype(<span class="bu">int</span>) <span class="op">*</span> <span class="dv">1</span> <span class="op">+</span> (temp_2025_dc[col] <span class="op">&lt;=</span> <span class="dv">50</span>).astype(<span class="bu">int</span>) <span class="op">*</span> <span class="op">-</span><span class="dv">1</span>).rolling(window<span class="op">=</span><span class="dv">21</span>, min_periods<span class="op">=</span><span class="dv">1</span>).<span class="bu">sum</span>()[::<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>            temp_2025_dc[<span class="ss">f'</span><span class="sc">{</span>col<span class="sc">}</span><span class="ss">_rolling_freeze'</span>] <span class="op">=</span> (temp_2025_dc[col][::<span class="op">-</span><span class="dv">1</span>] <span class="op">&lt;</span> <span class="dv">32</span>).rolling(window<span class="op">=</span><span class="dv">21</span>, min_periods<span class="op">=</span><span class="dv">1</span>).<span class="bu">sum</span>()[::<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>            temp_2025_dc[<span class="ss">f'</span><span class="sc">{</span>col<span class="sc">}</span><span class="ss">_rolling_chill'</span>] <span class="op">=</span> ((temp_2025_dc[col][::<span class="op">-</span><span class="dv">1</span>] <span class="op">&gt;=</span> <span class="dv">32</span>) <span class="op">&amp;</span> (temp_2025_dc[col][::<span class="op">-</span><span class="dv">1</span>] <span class="op">&lt;</span> <span class="dv">50</span>)).rolling(window<span class="op">=</span><span class="dv">21</span>, min_periods<span class="op">=</span><span class="dv">1</span>).<span class="bu">sum</span>()[::<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>            temp_2025_dc[<span class="ss">f'</span><span class="sc">{</span>col<span class="sc">}</span><span class="ss">_rolling_temp_change'</span>] <span class="op">=</span> temp_2025_dc[col][::<span class="op">-</span><span class="dv">1</span>].diff(periods<span class="op">=</span><span class="dv">7</span>)[::<span class="op">-</span><span class="dv">1</span>]</span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>    temp_2025_dc <span class="op">=</span> temp_2025_dc.head(<span class="dv">50</span>)</span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>    all_results <span class="op">=</span> []</span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>    intervals <span class="op">=</span> [<span class="dv">10</span>,<span class="dv">20</span>,<span class="dv">30</span>,<span class="dv">40</span>]</span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> interval <span class="kw">in</span> intervals:</span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a>        temp_2025_dc_df <span class="op">=</span> temp_2025_dc.head(interval)</span>
+<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a>        test_sequences <span class="op">=</span> {</span>
+<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a>            <span class="st">'_sum_sq'</span>: np.array(temp_2025_dc_df[<span class="st">'2025_b_sum_sq'</span>]),</span>
+<span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a>            <span class="st">'_sum_log'</span>: np.array(temp_2025_dc_df[<span class="st">'2025_b_sum_log'</span>]),</span>
+<span id="cb13-28"><a href="#cb13-28" aria-hidden="true" tabindex="-1"></a>            <span class="st">'_sum_dd32'</span>: np.array(temp_2025_dc_df[<span class="st">'2025_b_sum_dd32'</span>]),</span>
+<span id="cb13-29"><a href="#cb13-29" aria-hidden="true" tabindex="-1"></a>            <span class="st">'_sum_dd50'</span>: np.array(temp_2025_dc_df[<span class="st">'2025_b_sum_dd50'</span>]),</span>
+<span id="cb13-30"><a href="#cb13-30" aria-hidden="true" tabindex="-1"></a>            <span class="st">'_sum_last14'</span>: np.array(temp_2025_dc_df[<span class="st">'2025_b_sum_last14'</span>]),</span>
+<span id="cb13-31"><a href="#cb13-31" aria-hidden="true" tabindex="-1"></a>            <span class="st">'_norm_dd_32'</span>: np.array(temp_2025_dc_df[<span class="st">'2025_b_norm_dd_32'</span>]),</span>
+<span id="cb13-32"><a href="#cb13-32" aria-hidden="true" tabindex="-1"></a>            <span class="st">'_norm_dd_50'</span>: np.array(temp_2025_dc_df[<span class="st">'2025_b_norm_dd_50'</span>]),</span>
+<span id="cb13-33"><a href="#cb13-33" aria-hidden="true" tabindex="-1"></a>            <span class="st">'_rolling_freeze'</span>: np.array(temp_2025_dc_df[<span class="st">'2025_b_rolling_freeze'</span>]),</span>
+<span id="cb13-34"><a href="#cb13-34" aria-hidden="true" tabindex="-1"></a>            <span class="st">'_rolling_chill'</span>: np.array(temp_2025_dc_df[<span class="st">'2025_b_rolling_chill'</span>]),</span>
+<span id="cb13-35"><a href="#cb13-35" aria-hidden="true" tabindex="-1"></a>            <span class="st">'_rolling_temp_change'</span>: np.array(temp_2025_dc_df[<span class="st">'2025_b_rolling_temp_change'</span>]),</span>
+<span id="cb13-36"><a href="#cb13-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-37"><a href="#cb13-37" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb13-38"><a href="#cb13-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-39"><a href="#cb13-39" aria-hidden="true" tabindex="-1"></a>        all_results.append((interval, predict_from_arrays(historical_feature_sets, test_sequences)))</span>
+<span id="cb13-40"><a href="#cb13-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-41"><a href="#cb13-41" aria-hidden="true" tabindex="-1"></a>    <span class="co">#all_results</span></span>
+<span id="cb13-42"><a href="#cb13-42" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"Results for "</span> <span class="op">+</span> loc.name)</span>
+<span id="cb13-43"><a href="#cb13-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-44"><a href="#cb13-44" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> result <span class="kw">in</span> all_results:</span>
+<span id="cb13-45"><a href="#cb13-45" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(result)</span>
+<span id="cb13-46"><a href="#cb13-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-47"><a href="#cb13-47" aria-hidden="true" tabindex="-1"></a>    arrays <span class="op">=</span> []</span>
+<span id="cb13-48"><a href="#cb13-48" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(feature_suffixes)):</span>
+<span id="cb13-49"><a href="#cb13-49" aria-hidden="true" tabindex="-1"></a>        arrays.append([])</span>
+<span id="cb13-50"><a href="#cb13-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-51"><a href="#cb13-51" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">4</span>):</span>
+<span id="cb13-52"><a href="#cb13-52" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="bu">len</span>(feature_suffixes)):</span>
+<span id="cb13-53"><a href="#cb13-53" aria-hidden="true" tabindex="-1"></a>            arrays[j].append(all_results[i][<span class="dv">1</span>][feature_suffixes[j]][<span class="dv">1</span>])</span>
+<span id="cb13-54"><a href="#cb13-54" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb13-55"><a href="#cb13-55" aria-hidden="true" tabindex="-1"></a>    data.append((loc.name, arrays))</span>
+<span id="cb13-56"><a href="#cb13-56" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb13-57"><a href="#cb13-57" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"----- ----- -----"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Results for Washington DC
+(10, {'_sum_sq': ('1991_b_sum_sq', 24, 3852.680000000011), '_sum_log': ('2013_b_sum_log', 41, 1.0494271412236884), '_sum_dd32': ('1991_b_sum_dd32', 0, 0.0), '_sum_dd50': ('1992_b_sum_dd50', 31, 0.0), '_sum_last14': ('2005_b_sum_last14', 23, 54.799999999999955), '_norm_dd_32': ('1994_b_norm_dd_32', 0, 0.0), '_norm_dd_50': ('2018_b_norm_dd_50', 4, 0.0), '_rolling_freeze': ('1991_b_rolling_freeze', 0, 0.0), '_rolling_chill': ('1999_b_rolling_chill', 34, 0.0), '_rolling_temp_change': ('1997_b_rolling_temp_change', 59, 24.800000000000008)})
+(20, {'_sum_sq': ('2013_b_sum_sq', 37, 13526.310000000023), '_sum_log': ('2005_b_sum_log', 33, 5.482217935625627), '_sum_dd32': ('1991_b_sum_dd32', 6, 0.0), '_sum_dd50': ('1998_b_sum_dd50', 17, 0.0), '_sum_last14': ('2024_b_sum_last14', 46, 127.79999999999995), '_norm_dd_32': ('1994_b_norm_dd_32', 0, 2.0), '_norm_dd_50': ('2018_b_norm_dd_50', 4, 2.0), '_rolling_freeze': ('1991_b_rolling_freeze', 6, 0.0), '_rolling_chill': ('2001_b_rolling_chill', 55, 4.0), '_rolling_temp_change': ('2011_b_rolling_temp_change', 38, 71.59999999999997)})
+(30, {'_sum_sq': ('1991_b_sum_sq', 34, 18253.010000000024), '_sum_log': ('2009_b_sum_log', 22, 8.464229549028587), '_sum_dd32': ('1991_b_sum_dd32', 1, 7.0), '_sum_dd50': ('1991_b_sum_dd50', 36, 0.0), '_sum_last14': ('2009_b_sum_last14', 23, 191.9999999999996), '_norm_dd_32': ('1991_b_norm_dd_32', 1, 7.0), '_norm_dd_50': ('1993_b_norm_dd_50', 2, 5.0), '_rolling_freeze': ('1991_b_rolling_freeze', 1, 7.0), '_rolling_chill': ('1997_b_rolling_chill', 27, 4.0), '_rolling_temp_change': ('2005_b_rolling_temp_change', 33, 124.59999999999995)})
+(40, {'_sum_sq': ('1991_b_sum_sq', 35, 32586.250000000022), '_sum_log': ('2005_b_sum_log', 22, 11.476110915306847), '_sum_dd32': ('1999_b_sum_dd32', 40, 14.0), '_sum_dd50': ('1991_b_sum_dd50', 36, 0.0), '_sum_last14': ('2005_b_sum_last14', 24, 321.99999999999966), '_norm_dd_32': ('2009_b_norm_dd_32', 0, 8.0), '_norm_dd_50': ('2001_b_norm_dd_50', 0, 6.0), '_rolling_freeze': ('1999_b_rolling_freeze', 40, 15.0), '_rolling_chill': ('1997_b_rolling_chill', 27, 9.0), '_rolling_temp_change': ('2019_b_rolling_temp_change', 20, 182.9)})
+----- ----- -----
+Results for Liestal
+(10, {'_sum_sq': ('2002_b_sum_sq', 66, 2793.6500000000015), '_sum_log': ('2004_b_sum_log', 29, 0.779998276216844), '_sum_dd32': ('1997_b_sum_dd32', 27, 0.0), '_sum_dd50': ('1991_b_sum_dd50', 53, 0.0), '_sum_last14': ('2002_b_sum_last14', 69, 30.700000000000045), '_norm_dd_32': ('1992_b_norm_dd_32', 0, 0.0), '_norm_dd_50': ('1996_b_norm_dd_50', 10, 0.0), '_rolling_freeze': ('1997_b_rolling_freeze', 27, 0.0), '_rolling_chill': ('2013_b_rolling_chill', 31, 0.0), '_rolling_temp_change': ('2001_b_rolling_temp_change', 18, 26.899999999999988)})
+(20, {'_sum_sq': ('1999_b_sum_sq', 18, 10711.30000000001), '_sum_log': ('2008_b_sum_log', 45, 2.978655652284772), '_sum_dd32': ('1997_b_sum_dd32', 27, 0.0), '_sum_dd50': ('1993_b_sum_dd50', 58, 0.0), '_sum_last14': ('1998_b_sum_last14', 43, 80.00000000000034), '_norm_dd_32': ('2002_b_norm_dd_32', 0, 2.0), '_norm_dd_50': ('1992_b_norm_dd_50', 4, 4.0), '_rolling_freeze': ('1997_b_rolling_freeze', 27, 0.0), '_rolling_chill': ('2013_b_rolling_chill', 29, 3.0), '_rolling_temp_change': ('2013_b_rolling_temp_change', 23, 55.79999999999997)})
+(30, {'_sum_sq': ('2013_b_sum_sq', 28, 19976.200000000015), '_sum_log': ('2008_b_sum_log', 22, 7.369746634481103), '_sum_dd32': ('1997_b_sum_dd32', 24, 0.0), '_sum_dd50': ('1993_b_sum_dd50', 48, 0.0), '_sum_last14': ('1998_b_sum_last14', 36, 213.60000000000014), '_norm_dd_32': ('2002_b_norm_dd_32', 0, 2.0), '_norm_dd_50': ('1993_b_norm_dd_50', 4, 4.0), '_rolling_freeze': ('1997_b_rolling_freeze', 23, 0.0), '_rolling_chill': ('2013_b_rolling_chill', 26, 7.0), '_rolling_temp_change': ('2013_b_rolling_temp_change', 23, 99.09999999999997)})
+(40, {'_sum_sq': ('2005_b_sum_sq', 18, 17272.089999999997), '_sum_log': ('2005_b_sum_log', 18, 10.720291321811246), '_sum_dd32': ('1997_b_sum_dd32', 17, 4.0), '_sum_dd50': ('1994_b_sum_dd50', 22, 0.0), '_sum_last14': ('2005_b_sum_last14', 22, 395.2999999999997), '_norm_dd_32': ('2002_b_norm_dd_32', 0, 8.0), '_norm_dd_50': ('1994_b_norm_dd_50', 14, 7.0), '_rolling_freeze': ('1997_b_rolling_freeze', 27, 3.0), '_rolling_chill': ('2013_b_rolling_chill', 16, 16.0), '_rolling_temp_change': ('2013_b_rolling_temp_change', 21, 147.8)})
+----- ----- -----
+Results for Kyoto
+(10, {'_sum_sq': ('1997_b_sum_sq', 35, 3806.989999999998), '_sum_log': ('1997_b_sum_log', 35, 0.9963614374403846), '_sum_dd32': ('1997_b_sum_dd32', 0, 0.0), '_sum_dd50': ('1991_b_sum_dd50', 53, 0.0), '_sum_last14': ('2013_b_sum_last14', 31, 29.999999999999773), '_norm_dd_32': ('1992_b_norm_dd_32', 0, 0.0), '_norm_dd_50': ('1996_b_norm_dd_50', 10, 0.0), '_rolling_freeze': ('1997_b_rolling_freeze', 0, 0.0), '_rolling_chill': ('1998_b_rolling_chill', 38, 0.0), '_rolling_temp_change': ('2024_b_rolling_temp_change', 68, 21.599999999999994)})
+(20, {'_sum_sq': ('1991_b_sum_sq', 32, 11540.369999999988), '_sum_log': ('2012_b_sum_log', 48, 2.9421979249935077), '_sum_dd32': ('1997_b_sum_dd32', 0, 0.0), '_sum_dd50': ('1991_b_sum_dd50', 53, 0.0), '_sum_last14': ('2013_b_sum_last14', 31, 54.19999999999993), '_norm_dd_32': ('1995_b_norm_dd_32', 0, 0.0), '_norm_dd_50': ('1992_b_norm_dd_50', 4, 4.0), '_rolling_freeze': ('1997_b_rolling_freeze', 0, 0.0), '_rolling_chill': ('1998_b_rolling_chill', 37, 1.0), '_rolling_temp_change': ('2013_b_rolling_temp_change', 28, 59.70000000000001)})
+(30, {'_sum_sq': ('1999_b_sum_sq', 19, 20571.660000000007), '_sum_log': ('2012_b_sum_log', 47, 4.449839565681472), '_sum_dd32': ('1998_b_sum_dd32', 17, 0.0), '_sum_dd50': ('1992_b_sum_dd50', 45, 0.0), '_sum_last14': ('1998_b_sum_last14', 37, 136.39999999999986), '_norm_dd_32': ('1997_b_norm_dd_32', 0, 0.0), '_norm_dd_50': ('1993_b_norm_dd_50', 4, 4.0), '_rolling_freeze': ('1998_b_rolling_freeze', 17, 0.0), '_rolling_chill': ('1998_b_rolling_chill', 28, 11.0), '_rolling_temp_change': ('2001_b_rolling_temp_change', 1, 87.29999999999998)})
+(40, {'_sum_sq': ('1999_b_sum_sq', 30, 51632.58000000003), '_sum_log': ('1999_b_sum_log', 30, 11.255820258773852), '_sum_dd32': ('1998_b_sum_dd32', 26, 0.0), '_sum_dd50': ('1993_b_sum_dd50', 12, 0.0), '_sum_last14': ('1999_b_sum_last14', 14, 332.0999999999991), '_norm_dd_32': ('1997_b_norm_dd_32', 0, 0.0), '_norm_dd_50': ('1993_b_norm_dd_50', 4, 4.0), '_rolling_freeze': ('1998_b_rolling_freeze', 17, 0.0), '_rolling_chill': ('1998_b_rolling_chill', 19, 29.0), '_rolling_temp_change': ('1998_b_rolling_temp_change', 18, 118.39999999999992)})
+----- ----- -----
+Results for Vancouver
+(10, {'_sum_sq': ('1999_b_sum_sq', 69, 3539.059999999994), '_sum_log': ('2004_b_sum_log', 33, 1.8825529727395605), '_sum_dd32': ('1991_b_sum_dd32', 52, 0.0), '_sum_dd50': ('1991_b_sum_dd50', 53, 0.0), '_sum_last14': ('2016_b_sum_last14', 24, 41.80000000000041), '_norm_dd_32': ('1992_b_norm_dd_32', 0, 0.0), '_norm_dd_50': ('1996_b_norm_dd_50', 10, 0.0), '_rolling_freeze': ('1991_b_rolling_freeze', 52, 0.0), '_rolling_chill': ('1991_b_rolling_chill', 53, 0.0), '_rolling_temp_change': ('2010_b_rolling_temp_change', 13, 21.50000000000001)})
+(20, {'_sum_sq': ('2003_b_sum_sq', 16, 10951.32), '_sum_log': ('1997_b_sum_log', 42, 3.912478765509377), '_sum_dd32': ('1991_b_sum_dd32', 47, 2.0), '_sum_dd50': ('1991_b_sum_dd50', 53, 0.0), '_sum_last14': ('1993_b_sum_last14', 0, 205.39999999999975), '_norm_dd_32': ('1994_b_norm_dd_32', 0, 10.0), '_norm_dd_50': ('1992_b_norm_dd_50', 4, 4.0), '_rolling_freeze': ('1991_b_rolling_freeze', 47, 2.0), '_rolling_chill': ('2013_b_rolling_chill', 52, 0.0), '_rolling_temp_change': ('2010_b_rolling_temp_change', 13, 46.600000000000016)})
+(30, {'_sum_sq': ('2010_b_sum_sq', 22, 15917.249999999978), '_sum_log': ('2010_b_sum_log', 24, 6.122629691371159), '_sum_dd32': ('2016_b_sum_dd32', 44, 11.0), '_sum_dd50': ('1992_b_sum_dd50', 45, 0.0), '_sum_last14': ('2022_b_sum_last14', 26, 221.99999999999977), '_norm_dd_32': ('1993_b_norm_dd_32', 0, 14.0), '_norm_dd_50': ('1993_b_norm_dd_50', 4, 4.0), '_rolling_freeze': ('2016_b_rolling_freeze', 44, 11.0), '_rolling_chill': ('2013_b_rolling_chill', 49, 5.0), '_rolling_temp_change': ('2021_b_rolling_temp_change', 45, 80.49999999999994)})
+(40, {'_sum_sq': ('2010_b_sum_sq', 22, 20165.759999999973), '_sum_log': ('2010_b_sum_log', 24, 10.418869760718167), '_sum_dd32': ('2022_b_sum_dd32', 38, 9.0), '_sum_dd50': ('1993_b_sum_dd50', 12, 0.0), '_sum_last14': ('2010_b_sum_last14', 20, 231.6000000000007), '_norm_dd_32': ('1994_b_norm_dd_32', 9, 37.0), '_norm_dd_50': ('1993_b_norm_dd_50', 4, 4.0), '_rolling_freeze': ('2022_b_rolling_freeze', 38, 8.0), '_rolling_chill': ('2023_b_rolling_chill', 10, 5.0), '_rolling_temp_change': ('2010_b_rolling_temp_change', 12, 112.39999999999998)})
+----- ----- -----
+Results for NYC
+(10, {'_sum_sq': ('2011_b_sum_sq', 42, 4121.240000000002), '_sum_log': ('2016_b_sum_log', 49, 0.9733589713594881), '_sum_dd32': ('2019_b_sum_dd32', 53, 0.0), '_sum_dd50': ('1991_b_sum_dd50', 53, 0.0), '_sum_last14': ('2022_b_sum_last14', 39, 58.699999999999875), '_norm_dd_32': ('1994_b_norm_dd_32', 41, 5.0), '_norm_dd_50': ('1996_b_norm_dd_50', 10, 0.0), '_rolling_freeze': ('2019_b_rolling_freeze', 53, 0.0), '_rolling_chill': ('2012_b_rolling_chill', 41, 0.0), '_rolling_temp_change': ('2012_b_rolling_temp_change', 52, 30.899999999999995)})
+(20, {'_sum_sq': ('1993_b_sum_sq', 8, 14104.629999999997), '_sum_log': ('1996_b_sum_log', 20, 7.187871515130922), '_sum_dd32': ('2014_b_sum_dd32', 36, 6.0), '_sum_dd50': ('1991_b_sum_dd50', 53, 0.0), '_sum_last14': ('1993_b_sum_last14', 11, 122.59999999999991), '_norm_dd_32': ('1993_b_norm_dd_32', 0, 20.0), '_norm_dd_50': ('1992_b_norm_dd_50', 4, 4.0), '_rolling_freeze': ('2014_b_rolling_freeze', 36, 6.0), '_rolling_chill': ('2004_b_rolling_chill', 23, 5.0), '_rolling_temp_change': ('2023_b_rolling_temp_change', 40, 62.999999999999986)})
+(30, {'_sum_sq': ('1993_b_sum_sq', 7, 20540.860000000004), '_sum_log': ('2010_b_sum_log', 50, 14.727854823709848), '_sum_dd32': ('2005_b_sum_dd32', 28, 7.0), '_sum_dd50': ('1992_b_sum_dd50', 45, 0.0), '_sum_last14': ('1993_b_sum_last14', 9, 280.19999999999965), '_norm_dd_32': ('1993_b_norm_dd_32', 0, 44.0), '_norm_dd_50': ('1993_b_norm_dd_50', 4, 4.0), '_rolling_freeze': ('2014_b_rolling_freeze', 36, 7.0), '_rolling_chill': ('2004_b_rolling_chill', 16, 7.0), '_rolling_temp_change': ('2005_b_rolling_temp_change', 33, 105.79999999999998)})
+(40, {'_sum_sq': ('1993_b_sum_sq', 8, 23326.34), '_sum_log': ('1993_b_sum_log', 5, 22.32314793928245), '_sum_dd32': ('2005_b_sum_dd32', 31, 9.0), '_sum_dd50': ('1993_b_sum_dd50', 12, 0.0), '_sum_last14': ('1993_b_sum_last14', 11, 408.5999999999997), '_norm_dd_32': ('1996_b_norm_dd_32', 0, 36.0), '_norm_dd_50': ('1993_b_norm_dd_50', 4, 4.0), '_rolling_freeze': ('2009_b_rolling_freeze', 26, 15.0), '_rolling_chill': ('2004_b_rolling_chill', 9, 14.0), '_rolling_temp_change': ('2005_b_rolling_temp_change', 33, 175.00000000000003)})
+----- ----- -----</code></pre>
+</div>
+</div>
+<p>After computing the estimated days_till_bloom for differing interval lengths, we can compare the estimated days. There are many outliers in the prediction, and the predictions can be wildly different at times. The chosen dates were picked in a non-rigorous, intuitive approach. While this may not be an ideal method for repeatability, for this specific prediction it might be okay. That’s because many of the high variance points are very unlikely; for example, points like 0 or 50 mean that the model thinks the trees are blooming today or in 50 days. We can reason intuitively that neither of these cases are/will happen, based on historical blooms. Thus, the median values we are left with are used to create the prediction and prediction intervals.</p>
+<p>Table for Washington DC</p>
+<ul>
+<li>columns represent the size of the testing interval.</li>
+<li>Values represent the predicted days_till_bloom</li>
+</ul>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Feature</th>
+<th style="text-align: right;">10</th>
+<th style="text-align: right;">20</th>
+<th style="text-align: right;">30</th>
+<th style="text-align: right;">40</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>_sum_sq</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: right;">37</td>
+<td style="text-align: right;">34</td>
+<td style="text-align: right;">32</td>
+</tr>
+<tr class="even">
+<td>_sum_log</td>
+<td style="text-align: right;">41</td>
+<td style="text-align: right;">33</td>
+<td style="text-align: right;">22</td>
+<td style="text-align: right;">21</td>
+</tr>
+<tr class="odd">
+<td>_sum_dd32</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">40</td>
+</tr>
+<tr class="even">
+<td>_sum_dd50</td>
+<td style="text-align: right;">31</td>
+<td style="text-align: right;">17</td>
+<td style="text-align: right;">36</td>
+<td style="text-align: right;">18</td>
+</tr>
+</tbody>
+</table>
+<p>…and more values. </p>
+<p>In the end, the final predictions for bloom dates (day of year) are:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>location</th>
+<th style="text-align: right;">prediction</th>
+<th style="text-align: right;">lower</th>
+<th style="text-align: right;">upper</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>washingtondc</td>
+<td style="text-align: right;">88</td>
+<td style="text-align: right;">84</td>
+<td style="text-align: right;">91</td>
+</tr>
+<tr class="even">
+<td>liestal</td>
+<td style="text-align: right;">85</td>
+<td style="text-align: right;">83</td>
+<td style="text-align: right;">90</td>
+</tr>
+<tr class="odd">
+<td>kyoto</td>
+<td style="text-align: right;">91</td>
+<td style="text-align: right;">88</td>
+<td style="text-align: right;">97</td>
+</tr>
+<tr class="even">
+<td>vancouver</td>
+<td style="text-align: right;">88</td>
+<td style="text-align: right;">84</td>
+<td style="text-align: right;">94</td>
+</tr>
+<tr class="odd">
+<td>newyorkcity</td>
+<td style="text-align: right;">95</td>
+<td style="text-align: right;">93</td>
+<td style="text-align: right;">97</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="limitations" class="level1">
+<h1>Limitations</h1>
+<p>While the initial results seem like they have potential, it is important to mention the many limitations of this modeling.</p>
+<ul>
+<li>Data set only trained on Washington DC temperatures; may not be comparable to other countries</li>
+<li>Training on more years past 1990</li>
+<li>Differing cycle lengths may impact prediction</li>
+<li>Low historical training data for places like NYC</li>
+<li>Different breeds of cherry blossoms might have different cycles and cycle patterns</li>
+<li>Not accounting for special impactful events (storms, dry spells, etc)</li>
+<li>Likely better results using other variables alongside temperature (emissions, sunlight, rainfall)</li>
+<li>Predictions and predictions intervals not chosen using empirical and repeatable method</li>
+</ul>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualizing the Digital Landscape</title>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #000000;
+            --accent-color: #000000;
+            --source-bg: #f1f5f9;
+            --header-p: #475569;
+        }
+
+        body.dark-mode {
+            --bg-color: #050505;
+            --text-color: #ffffff;
+            --accent-color: #ffffff;
+            --source-bg: #1e293b;
+            --header-p: #94a3b8;
+        }
+
+        * { 
+            box-sizing: border-box; 
+            margin: 0; 
+            padding: 0; 
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: -apple-system, system-ui, sans-serif;
+            transition: background-color 0.4s ease, color 0.4s ease;
+            overflow-x: hidden;
+        }
+
+        .theme-toggle {
+            position: fixed;
+            top: 25px;
+            right: 25px;
+            z-index: 2000;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            font-size: 2rem;
+            outline: none;
+        }
+
+        .header {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h1 { 
+            font-size: clamp(2rem, 8vw, 4rem); 
+            letter-spacing: -0.05em; 
+            font-weight: 800; 
+        }
+
+        .scrolly-wrapper {
+            display: flex;
+            width: 100%;
+            position: relative;
+        }
+
+        .narrative-col {
+            width: 40%;
+            z-index: 2;
+        }
+
+        .visual-col {
+            width: 60%;
+            height: 100vh;
+            position: sticky;
+            top: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .scrolly-wrapper.reverse { flex-direction: row-reverse; }
+        .scrolly-wrapper.reverse .narrative-col { padding-right: 5%; text-align: right; }
+        .scrolly-wrapper.reverse .step { align-items: flex-end; }
+        .scrolly-wrapper.normal .narrative-col { padding-left: 5%; }
+
+        .img-stack {
+            position: relative;
+            width: 85%;
+            height: 75%;
+        }
+
+        .img-stack img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .step {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            opacity: 0.05;
+        }
+
+        .step.active-text { opacity: 1; }
+        .step-content { max-width: 350px; }
+
+        h2 { 
+            font-size: 1.6rem; 
+            font-weight: 700; 
+            margin-bottom: 12px; 
+            text-transform: uppercase; 
+            letter-spacing: 0.05em;
+        }
+
+        p { 
+            font-size: 1rem; 
+            line-height: 1.6; 
+            margin-bottom: 15px; 
+        }
+
+        .source-box {
+            padding: 10px;
+            background: var(--source-bg);
+            border-left: 4px solid var(--accent-color);
+            font-size: 0.7rem;
+            color: var(--header-p);
+        }
+
+        .scrolly-wrapper.reverse .source-box { 
+            border-left: 0; 
+            border-right: 4px solid var(--accent-color); 
+        }
+
+        .source-box a { 
+            color: var(--text-color); 
+            font-weight: 700; 
+            text-decoration: underline; 
+        }
+
+        @media (max-width: 1024px) {
+            .scrolly-wrapper, .scrolly-wrapper.reverse { flex-direction: column; }
+            .narrative-col { width: 100%; padding: 0 5% !important; text-align: left !important; }
+            .visual-col { position: relative; width: 100%; height: 50vh; }
+            .step { height: auto; padding: 80px 0; align-items: flex-start !important; }
+        }
+    </style>
+</head>
+<body>
+
+    <button class="theme-toggle" id="theme-switch">
+        <span id="theme-icon">🌑</span>
+    </button>
+
+    <header class="header">
+        <h1>Visualizing the Digital Landscape</h1>
+    </header>
+
+    <div class="scrolly-wrapper normal">
+        <div class="narrative-col">
+            <section class="step" data-image="img1" data-anim="reveal">
+                <div class="step-content">
+                    <h2>Global Connectivity</h2>
+                    <p>80% of humanity projected online by 2030.</p>
+                    <div class="source-box">
+                        <a href="https://www.statista.com/forecasts/278414/number-of-worldwide-social-network-users/" target="_blank">Statista</a>
+                    </div>
+                </div>
+            </section>
+            <section class="step" data-image="img2" data-anim="wipe">
+                <div class="step-content">
+                    <h2>The Digital Minute</h2>
+                    <p>Digital interactions now rival physical scale.</p>
+                    <div class="source-box">
+                        <a href="https://www.statista.com/statistics/195140/new-user-generated-content-uploaded-by-users-per-minute/" target="_blank">Statista</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div class="visual-col">
+            <div class="img-stack">
+                <img id="img1" src="img1.jpg">
+                <img id="img2" src="img2.jpg">
+            </div>
+        </div>
+    </div>
+
+    <div class="scrolly-wrapper reverse">
+        <div class="narrative-col">
+            <section class="step" data-image="img3" data-anim="rotatePop">
+                <div class="step-content">
+                    <h2>Ad Engine</h2>
+                    <p>TikTok ads reach 3 in 10 adults globally.</p>
+                    <div class="source-box">
+                        <a href="https://datareportal.com/essential-tiktok-stats" target="_blank">DataReportal</a>
+                    </div>
+                </div>
+            </section>
+            <section class="step" data-image="img4" data-anim="overshoot">
+                <div class="step-content">
+                    <h2>AI Takeover</h2>
+                    <p>AI production has surpassed human output.</p>
+                    <div class="source-box">
+                        <a href="https://graphite.io/five-percent/more-articles-are-now-created-by-ai-than-humans" target="_blank">Graphite</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div class="visual-col">
+            <div class="img-stack">
+                <img id="img3" src="img3.png">
+                <img id="img4" src="img4.png">
+            </div>
+        </div>
+    </div>
+
+    <div class="scrolly-wrapper normal">
+        <div class="narrative-col">
+            <section class="step" data-image="img5" data-anim="reveal">
+                <div class="step-content">
+                    <h2>Attention</h2>
+                    <p>Screen focus has plummeted to 47 seconds.</p>
+                    <div class="source-box">
+                        <a href="https://www.apa.org/news/podcasts/speaking-of-psychology/attention-spans" target="_blank">Dr. Gloria Mark</a>
+                    </div>
+                </div>
+            </section>
+            <section class="step" data-image="img6" data-anim="wipe">
+                <div class="step-content">
+                    <h2>Reaction Decay</h2>
+                    <p>High reel consumption correlates with slower reaction times.</p>
+                    <div class="source-box">
+                        <a href="https://files.eric.ed.gov/fulltext/EJ1454296.pdf" target="_blank">Haliti-Sylaj Research</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div class="visual-col">
+            <div class="img-stack">
+                <img id="img5" src="img5.png">
+                <img id="img6" src="img6.png">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        const steps = gsap.utils.toArray(".step");
+        const images = gsap.utils.toArray(".img-stack img");
+
+        gsap.set(images, { autoAlpha: 0, visibility: "hidden" });
+
+        steps.forEach((step) => {
+            const imgId = step.getAttribute("data-image");
+            const anim = step.getAttribute("data-anim");
+            const img = document.getElementById(imgId);
+
+            ScrollTrigger.create({
+                trigger: step,
+                start: "top center",
+                end: "bottom center",
+                onToggle: self => {
+                    if (self.isActive) {
+                        runTransition(img, anim, step);
+                    }
+                }
+            });
+        });
+
+        function runTransition(img, type, step) {
+            gsap.killTweensOf(images);
+            
+            steps.forEach(s => s.classList.remove('active-text'));
+            step.classList.add('active-text');
+
+            const others = images.filter(i => i !== img);
+            gsap.set(others, { autoAlpha: 0, visibility: "hidden" });
+            gsap.set(img, { visibility: "visible" });
+
+            if (type === "reveal") {
+                gsap.fromTo(img, 
+                    { clipPath: "inset(100% 0% 0% 0%)", autoAlpha: 0, scale: 1.05 }, 
+                    { clipPath: "inset(0% 0% 0% 0%)", autoAlpha: 1, scale: 1, duration: 0.8, ease: "power4.out" }
+                );
+            } else if (type === "wipe") {
+                gsap.fromTo(img, 
+                    { clipPath: "inset(0% 100% 0% 0%)", autoAlpha: 0 }, 
+                    { clipPath: "inset(0% 0% 0% 0%)", autoAlpha: 1, duration: 0.8, ease: "expo.out" }
+                );
+            } else if (type === "rotatePop") {
+                gsap.fromTo(img, 
+                    { rotation: -8, scale: 0.8, autoAlpha: 0 }, 
+                    { rotation: 0, scale: 1, autoAlpha: 1, duration: 0.7, ease: "back.out(1.5)" }
+                );
+            } else if (type === "overshoot") {
+                gsap.fromTo(img, 
+                    { y: 80, autoAlpha: 0 }, 
+                    { y: 0, autoAlpha: 1, duration: 0.8, ease: "power2.out" }
+                );
+            }
+        }
+
+        const btn = document.getElementById('theme-switch');
+        const icon = document.getElementById('theme-icon');
+        
+        btn.onclick = () => {
+            const dark = document.body.classList.toggle('dark-mode');
+            icon.textContent = dark ? '☀️' : '🌑';
+        };
+    </script>
+</body>
+</html>
